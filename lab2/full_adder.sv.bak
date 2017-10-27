@@ -1,0 +1,12 @@
+module full_adder(out, Cout, A, B, Cin);
+	output logic out, Cout;
+	input logic A, B, Cin;
+	logic xor1_out, xor2_out, and1_out, and2_out;
+	
+	xor #50 xor1 (xor1_out, A, B);
+	xor #50 xor2 (xor2_out, xor1_out, Cin);
+	and #50 and1 (and1_out, xor1_out, Cin);
+	and #50 and2 (and2_out, A, B);
+	or #50 or1 (Cout, and1_out, and2_out);
+	
+endmodule

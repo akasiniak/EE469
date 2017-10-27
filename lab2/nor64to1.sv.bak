@@ -1,0 +1,13 @@
+module nor64to1 (out, Din);
+	input logic [63:0] Din;
+	output logic out;
+	logic [3:0] norOut;
+	
+	genvar i;
+	generate
+		for (i = 0; i < 4; i++) begin: eachNor16to1
+			nor16to1 #50 norGate16to1(norOut[i], Din[]);
+		end
+	endgenerate 
+	
+	and #50 andGate(out, norOut[0], norOut[1], norOut[2], norOut[3]);
