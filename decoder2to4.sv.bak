@@ -1,0 +1,8 @@
+module decoder2to1 (decoded, a, b, writeEn);
+	output logic [3:0] decoded;
+	input logic a, b, writeEn;
+	assign decoded[0] = ~a & ~b & writeEn;
+	assign decoded[1] = a & ~b & writeEn;
+	assign decoded[2] = ~a & b & writeEn;
+	assign decoded[3] = a & b & writeEn;
+endmodule
