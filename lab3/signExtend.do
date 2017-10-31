@@ -1,7 +1,7 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /signExtend19to64_testbench/in
-add wave -noupdate /signExtend19to64_testbench/out
+add wave -noupdate /signExtend_testbench/in
+add wave -noupdate /signExtend_testbench/out
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0

@@ -2,268 +2,42 @@
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:45:49 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signeExtend9to64_testbench
-# ** Error: (vlog-13069) ./signExtend9to64.sv(17): near "=": syntax error, unexpected '='.
-# ** Error: ./signExtend9to64.sv(17): (vlog-13205) Syntax error found in the scope following 'in'. Is there a missing '::'?
-# End time: 12:45:49 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./signExtend9to64.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:46:07 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signeExtend9to64_testbench
-# ** Error: (vlog-13069) ./signExtend9to64.sv(17): near "=": syntax error, unexpected '='.
-# ** Error: ./signExtend9to64.sv(17): (vlog-13205) Syntax error found in the scope following 'in'. Is there a missing '::'?
-# End time: 12:46:08 on Oct 27,2017, Elapsed time: 0:00:01
-# Errors: 2, Warnings: 0
-# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./signExtend9to64.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:46:32 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# ** Error: ./signExtend9to64.sv(7): Automatic variable not allowed in procedural continuous assignment statement: i
-# ** Error: ./signExtend9to64.sv(7): Automatic variable not allowed in procedural continuous assignment statement: i
-# ** Error: ./signExtend9to64.sv(7): Bit-select of reg not allowed in procedural continuous assignment: out.
-# ** Error: ./signExtend9to64.sv(9): Automatic variable not allowed in procedural continuous assignment statement: i
-# ** Error: ./signExtend9to64.sv(9): Bit-select of reg not allowed in procedural continuous assignment: out.
-# -- Compiling module signeExtend9to64_testbench
-# ** Error: (vlog-13069) ./signExtend9to64.sv(17): near "=": syntax error, unexpected '='.
-# ** Error: ./signExtend9to64.sv(17): (vlog-13205) Syntax error found in the scope following 'in'. Is there a missing '::'?
-# End time: 12:46:32 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 7, Warnings: 0
-# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./signExtend9to64.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:47:26 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signeExtend9to64_testbench
-# ** Error: (vlog-13069) ./signExtend9to64.sv(17): near "=": syntax error, unexpected '='.
-# ** Error: ./signExtend9to64.sv(17): (vlog-13205) Syntax error found in the scope following 'in'. Is there a missing '::'?
-# End time: 12:47:26 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./signExtend9to64.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:48:04 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signeExtend9to64_testbench
-# ** Error: (vlog-13069) ./signExtend9to64.sv(17): near "[": syntax error, unexpected '['.
-# ** Error: ./signExtend9to64.sv(17): (vlog-13205) Syntax error found in the scope following 'in'. Is there a missing '::'?
-# End time: 12:48:04 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./signExtend9to64.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:49:25 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signeExtend9to64_testbench
+# Start time: 11:26:19 on Oct 31,2017
+# vlog -reportprogress 300 ./signExtend.sv 
+# -- Compiling module signExtend
+# -- Compiling module signExtend_testbench
 # 
 # Top level modules:
-# 	signeExtend9to64_testbench
-# End time: 12:49:25 on Oct 27,2017, Elapsed time: 0:00:00
+# 	signExtend_testbench
+# End time: 11:26:19 on Oct 31,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend9to64_testbench 
-# Start time: 12:49:25 on Oct 27,2017
-# ** Error: (vsim-3170) Could not find 'signExtend9to64_testbench'.
-#         Searched libraries:
-#             C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/work
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./runlab.do PAUSED at line 11
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:49:42 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signExtend9to64_testbench
-# 
-# Top level modules:
-# 	signExtend9to64_testbench
-# End time: 12:49:42 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend9to64_testbench 
-# Start time: 12:49:25 on Oct 27,2017
+# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend_testbench 
+# Start time: 11:26:19 on Oct 31,2017
 # Loading sv_std.std
-# Loading work.signExtend9to64_testbench
-# Loading work.signExtend9to64
-# ** Error: Cannot open macro file: signExtend9to64.do
-# Error in macro ./runlab.do line 16
-# Cannot open macro file: signExtend9to64.do
-#     while executing
-# "do signExtend9to64.do"
-add wave -position end  sim:/signExtend9to64_testbench/in
-add wave -position end  sim:/signExtend9to64_testbench/out
-run -all
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:50:27 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signExtend9to64_testbench
-# 
-# Top level modules:
-# 	signExtend9to64_testbench
-# End time: 12:50:27 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 12:50:28 on Oct 27,2017, Elapsed time: 0:01:03
-# Errors: 4, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend9to64_testbench 
-# Start time: 12:50:28 on Oct 27,2017
-# Loading sv_std.std
-# Loading work.signExtend9to64_testbench
-# Loading work.signExtend9to64
-# ** Error: Cannot open macro file: signExtend9to64.do
-# Error in macro ./runlab.do line 16
-# Cannot open macro file: signExtend9to64.do
-#     while executing
-# "do signExtend9to64.do"
-add wave -position end  sim:/signExtend9to64_testbench/in
-add wave -position end  sim:/signExtend9to64_testbench/out
-run -all
-run -all
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:01:23 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signExtend9to64_testbench
-# 
-# Top level modules:
-# 	signExtend9to64_testbench
-# End time: 13:01:23 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:01:24 on Oct 27,2017, Elapsed time: 0:10:56
-# Errors: 3, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend9to64_testbench 
-# Start time: 13:01:24 on Oct 27,2017
-# Loading sv_std.std
-# Loading work.signExtend9to64_testbench
-# Loading work.signExtend9to64
-# ** Error: Cannot open macro file: signExtend9to64.do
-# Error in macro ./runlab.do line 16
-# Cannot open macro file: signExtend9to64.do
-#     while executing
-# "do signExtend9to64.do"
-add wave -position end  sim:/signExtend9to64_testbench/in
-add wave -position end  sim:/signExtend9to64_testbench/out
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/signExtend9to64.do}
-run -all
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:02:38 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend9to64.sv 
-# -- Compiling module signExtend9to64
-# -- Compiling module signExtend9to64_testbench
-# 
-# Top level modules:
-# 	signExtend9to64_testbench
-# End time: 13:02:38 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:02:38 on Oct 27,2017, Elapsed time: 0:01:14
-# Errors: 3, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend9to64_testbench 
-# Start time: 13:02:38 on Oct 27,2017
-# Loading sv_std.std
-# Loading work.signExtend9to64_testbench
-# Loading work.signExtend9to64
+# Loading work.signExtend_testbench
+# Loading work.signExtend
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
-run -all
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:33:51 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend19to64.sv 
-# -- Compiling module signExtend19to64
-# -- Compiling module signExtend19to64_testbench
+# Start time: 11:26:43 on Oct 31,2017
+# vlog -reportprogress 300 ./signExtend.sv 
+# -- Compiling module signExtend
+# -- Compiling module signExtend_testbench
 # 
 # Top level modules:
-# 	signExtend19to64_testbench
-# End time: 14:33:51 on Oct 27,2017, Elapsed time: 0:00:00
+# 	signExtend_testbench
+# End time: 11:26:43 on Oct 31,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 14:33:51 on Oct 27,2017, Elapsed time: 1:31:13
+# End time: 11:26:43 on Oct 31,2017, Elapsed time: 0:00:24
 # Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend19to64_testbench 
-# Start time: 14:33:51 on Oct 27,2017
+# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend_testbench 
+# Start time: 11:26:43 on Oct 31,2017
 # Loading sv_std.std
-# Loading work.signExtend19to64_testbench
-# Loading work.signExtend19to64
-# ** Error: Cannot open macro file: signExtend19to64.do
-# Error in macro ./runlab.do line 16
-# Cannot open macro file: signExtend19to64.do
-#     while executing
-# "do signExtend19to64.do"
-add wave -position end  sim:/signExtend19to64_testbench/in
-add wave -position end  sim:/signExtend19to64_testbench/out
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/signExtend19to64.do}
-run -all
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:36:15 on Oct 27,2017
-# vlog -reportprogress 300 ./signExtend26to64.sv 
-# -- Compiling module signExtend26to64
-# -- Compiling module signExtend26to64_testbench
-# 
-# Top level modules:
-# 	signExtend26to64_testbench
-# End time: 14:36:15 on Oct 27,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 14:36:16 on Oct 27,2017, Elapsed time: 0:02:25
-# Errors: 3, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend26to64_testbench 
-# Start time: 14:36:16 on Oct 27,2017
-# Loading sv_std.std
-# Loading work.signExtend26to64_testbench
-# Loading work.signExtend26to64
-# ** Error: Cannot open macro file: signExtend26to64.do
-# Error in macro ./runlab.do line 16
-# Cannot open macro file: signExtend26to64.do
-#     while executing
-# "do signExtend26to64.do"
-add wave -position end  sim:/signExtend26to64_testbench/in
-add wave -position end  sim:/signExtend26to64_testbench/out
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/signExtend26to64.do}
-run -all
-# End time: 14:36:40 on Oct 27,2017, Elapsed time: 0:00:24
-# Errors: 3, Warnings: 0
+# Loading work.signExtend_testbench
+# Loading work.signExtend
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
