@@ -1,43 +1,75 @@
 # Reading C:/intelFPGA/17.0/modelsim_ase/tcl/vsim/pref.tcl
+do runlab.o
+# Cannot open macro file: runlab.o
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:26:19 on Oct 31,2017
-# vlog -reportprogress 300 ./signExtend.sv 
-# -- Compiling module signExtend
-# -- Compiling module signExtend_testbench
-# 
-# Top level modules:
-# 	signExtend_testbench
-# End time: 11:26:19 on Oct 31,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend_testbench 
-# Start time: 11:26:19 on Oct 31,2017
-# Loading sv_std.std
-# Loading work.signExtend_testbench
-# Loading work.signExtend
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
+# Start time: 15:32:08 on Oct 31,2017
+# vlog -reportprogress 300 ./programCounter.sv 
+# -- Compiling module programCounter
+# ** Error: (vlog-13069) ./programCounter.sv(8): near "0": syntax error, unexpected INTEGER NUMBER, expecting '='.
+# ** Error: ./programCounter.sv(8): (vlog-13205) Syntax error found in the scope following 'i'. Is there a missing '::'?
+# End time: 15:32:08 on Oct 31,2017, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 7
+# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./programCounter.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:26:43 on Oct 31,2017
-# vlog -reportprogress 300 ./signExtend.sv 
-# -- Compiling module signExtend
-# -- Compiling module signExtend_testbench
+# Start time: 15:32:26 on Oct 31,2017
+# vlog -reportprogress 300 ./programCounter.sv 
+# -- Compiling module programCounter
+# ** Error: (vlog-13069) ./programCounter.sv(11): near "endgenerate": syntax error, unexpected endgenerate.
+# ** Error: (vlog-13069) ./programCounter.sv(38): near "endmodule": syntax error, unexpected endmodule.
+# End time: 15:32:26 on Oct 31,2017, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 7
+# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./programCounter.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:14 on Oct 31,2017
+# vlog -reportprogress 300 ./programCounter.sv 
+# -- Compiling module programCounter
+# -- Compiling module programCounter_testbench
 # 
 # Top level modules:
-# 	signExtend_testbench
-# End time: 11:26:43 on Oct 31,2017, Elapsed time: 0:00:00
+# 	programCounter_testbench
+# End time: 15:34:14 on Oct 31,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 11:26:43 on Oct 31,2017, Elapsed time: 0:00:24
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:14 on Oct 31,2017
+# vlog -reportprogress 300 ./D_FF.sv 
+# -- Compiling module D_FF
+# 
+# Top level modules:
+# 	D_FF
+# End time: 15:34:14 on Oct 31,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work signExtend_testbench 
-# Start time: 11:26:43 on Oct 31,2017
+# vsim -voptargs=""+acc"" -t 1ps -lib work programCounter_testbench 
+# Start time: 15:34:15 on Oct 31,2017
 # Loading sv_std.std
-# Loading work.signExtend_testbench
-# Loading work.signExtend
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
+# Loading work.programCounter_testbench
+# Loading work.programCounter
+# Loading work.D_FF
+# ** Error: Cannot open macro file: programCounter.do
+# Error in macro ./runlab.do line 17
+# Cannot open macro file: programCounter.do
+#     while executing
+# "do programCounter.do"
+add wave -position end  sim:/programCounter_testbench/in
+add wave -position end  sim:/programCounter_testbench/out
+add wave -position end  sim:/programCounter_testbench/clk
+add wave -position end  sim:/programCounter_testbench/reset
+run -all
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/programCounter.do}
+# Break key hit
+# Break in Module programCounter_testbench at ./programCounter.sv line 21
+# End time: 15:38:55 on Oct 31,2017, Elapsed time: 0:04:40
+# Errors: 3, Warnings: 0

@@ -28,7 +28,7 @@ module alu (A, B, cntrl, result, negative, zero, overflow, carry_out);
 	endgenerate
 	
 	xor #DELAY xorFlagGate(overflow, carryLogic[63], carryLogic[62]);
-	assign negative = adder_out[63];
+	assign negative = result[63];
 	assign carry_out = carryLogic[63];
 	nor64to1 zeroFlag(zero, result);
 	
