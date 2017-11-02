@@ -1,75 +1,193 @@
 # Reading C:/intelFPGA/17.0/modelsim_ase/tcl/vsim/pref.tcl
-do runlab.o
-# Cannot open macro file: runlab.o
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:32:08 on Oct 31,2017
-# vlog -reportprogress 300 ./programCounter.sv 
-# -- Compiling module programCounter
-# ** Error: (vlog-13069) ./programCounter.sv(8): near "0": syntax error, unexpected INTEGER NUMBER, expecting '='.
-# ** Error: ./programCounter.sv(8): (vlog-13205) Syntax error found in the scope following 'i'. Is there a missing '::'?
-# End time: 15:32:08 on Oct 31,2017, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
+# Start time: 17:07:50 on Nov 01,2017
+# vlog -reportprogress 300 ./zeroPad.sv 
+# ** Error: (vlog-7) Failed to open design unit file "./zeroPad.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 17:07:50 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
 # ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runlab.do line 7
 # C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "vlog "./programCounter.sv""
+# "vlog "./zeroPad.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:32:26 on Oct 31,2017
-# vlog -reportprogress 300 ./programCounter.sv 
-# -- Compiling module programCounter
-# ** Error: (vlog-13069) ./programCounter.sv(11): near "endgenerate": syntax error, unexpected endgenerate.
-# ** Error: (vlog-13069) ./programCounter.sv(38): near "endmodule": syntax error, unexpected endmodule.
-# End time: 15:32:26 on Oct 31,2017, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runlab.do line 7
-# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog "./programCounter.sv""
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:34:14 on Oct 31,2017
-# vlog -reportprogress 300 ./programCounter.sv 
-# -- Compiling module programCounter
-# -- Compiling module programCounter_testbench
+# Start time: 17:08:29 on Nov 01,2017
+# vlog -reportprogress 300 ./zeroPad.sv 
+# -- Compiling module zeroPad
+# -- Compiling module zeroPad_testbench
 # 
 # Top level modules:
-# 	programCounter_testbench
-# End time: 15:34:14 on Oct 31,2017, Elapsed time: 0:00:00
+# 	zeroPad_testbench
+# End time: 17:08:29 on Nov 01,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work zeroPad_testbench 
+# Start time: 17:08:30 on Nov 01,2017
+# Loading sv_std.std
+# Loading work.zeroPad_testbench
+# Loading work.zeroPad
+# ** Error: Cannot open macro file: zeroPad.do
+# Error in macro ./runlab.do line 17
+# Cannot open macro file: zeroPad.do
+#     while executing
+# "do zeroPad.do"
+add wave -position end  sim:/zeroPad_testbench/in
+add wave -position end  sim:/zeroPad_testbench/out
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Megan Swanson/Desktop/EE469/lab3/zeroPad.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:34:14 on Oct 31,2017
+# Start time: 17:09:11 on Nov 01,2017
+# vlog -reportprogress 300 ./zeroPad.sv 
+# -- Compiling module zeroPad
+# -- Compiling module zeroPad_testbench
+# 
+# Top level modules:
+# 	zeroPad_testbench
+# End time: 17:09:11 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:09:12 on Nov 01,2017, Elapsed time: 0:00:42
+# Errors: 3, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work zeroPad_testbench 
+# Start time: 17:09:12 on Nov 01,2017
+# Loading sv_std.std
+# Loading work.zeroPad_testbench
+# Loading work.zeroPad
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:10:04 on Nov 01,2017
+# vlog -reportprogress 300 ./zeroPad.sv 
+# -- Compiling module zeroPad
+# -- Compiling module zeroPad_testbench
+# 
+# Top level modules:
+# 	zeroPad_testbench
+# End time: 17:10:05 on Nov 01,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 17:10:05 on Nov 01,2017, Elapsed time: 0:00:53
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work zeroPad_testbench 
+# Start time: 17:10:05 on Nov 01,2017
+# Loading sv_std.std
+# Loading work.zeroPad_testbench
+# Loading work.zeroPad
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:24:32 on Nov 01,2017
 # vlog -reportprogress 300 ./D_FF.sv 
 # -- Compiling module D_FF
 # 
 # Top level modules:
 # 	D_FF
-# End time: 15:34:14 on Oct 31,2017, Elapsed time: 0:00:00
+# End time: 17:24:32 on Nov 01,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work programCounter_testbench 
-# Start time: 15:34:15 on Oct 31,2017
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:24:32 on Nov 01,2017
+# vlog -reportprogress 300 ./flags.sv 
+# -- Compiling module flags
+# -- Compiling module flags_testbench
+# 
+# Top level modules:
+# 	flags_testbench
+# End time: 17:24:32 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:24:34 on Nov 01,2017, Elapsed time: 0:14:29
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work flags_testbench 
+# Start time: 17:24:34 on Nov 01,2017
 # Loading sv_std.std
-# Loading work.programCounter_testbench
-# Loading work.programCounter
+# Loading work.flags_testbench
+# Loading work.flags
 # Loading work.D_FF
-# ** Error: Cannot open macro file: programCounter.do
-# Error in macro ./runlab.do line 17
-# Cannot open macro file: programCounter.do
+# ** Error: Cannot open macro file: flags.do
+# Error in macro ./runlab.do line 18
+# Cannot open macro file: flags.do
 #     while executing
-# "do programCounter.do"
-add wave -position end  sim:/programCounter_testbench/in
-add wave -position end  sim:/programCounter_testbench/out
-add wave -position end  sim:/programCounter_testbench/clk
-add wave -position end  sim:/programCounter_testbench/reset
-run -all
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/programCounter.do}
-# Break key hit
-# Break in Module programCounter_testbench at ./programCounter.sv line 21
-# End time: 15:38:55 on Oct 31,2017, Elapsed time: 0:04:40
+# "do flags.do"
+add wave -position end  sim:/flags_testbench/in
+add wave -position end  sim:/flags_testbench/out
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Megan Swanson/Desktop/EE469/lab3/flags.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:04 on Nov 01,2017
+# vlog -reportprogress 300 ./D_FF.sv 
+# -- Compiling module D_FF
+# 
+# Top level modules:
+# 	D_FF
+# End time: 17:25:04 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:05 on Nov 01,2017
+# vlog -reportprogress 300 ./flags.sv 
+# -- Compiling module flags
+# -- Compiling module flags_testbench
+# 
+# Top level modules:
+# 	flags_testbench
+# End time: 17:25:05 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:25:06 on Nov 01,2017, Elapsed time: 0:00:32
 # Errors: 3, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work flags_testbench 
+# Start time: 17:25:06 on Nov 01,2017
+# Loading sv_std.std
+# Loading work.flags_testbench
+# Loading work.flags
+# Loading work.D_FF
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./flags.sv(34)
+#    Time: 1850 ps  Iteration: 1  Instance: /flags_testbench
+# Break in Module flags_testbench at ./flags.sv line 34
+add wave -position end  sim:/flags_testbench/reset
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Megan Swanson/Desktop/EE469/lab3/flags.do}
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:36 on Nov 01,2017
+# vlog -reportprogress 300 ./D_FF.sv 
+# -- Compiling module D_FF
+# 
+# Top level modules:
+# 	D_FF
+# End time: 17:25:36 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:36 on Nov 01,2017
+# vlog -reportprogress 300 ./flags.sv 
+# -- Compiling module flags
+# -- Compiling module flags_testbench
+# 
+# Top level modules:
+# 	flags_testbench
+# End time: 17:25:36 on Nov 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:25:38 on Nov 01,2017, Elapsed time: 0:00:32
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work flags_testbench 
+# Start time: 17:25:38 on Nov 01,2017
+# Loading sv_std.std
+# Loading work.flags_testbench
+# Loading work.flags
+# Loading work.D_FF
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./flags.sv(34)
+#    Time: 1850 ps  Iteration: 1  Instance: /flags_testbench
+# Break in Module flags_testbench at ./flags.sv line 34
