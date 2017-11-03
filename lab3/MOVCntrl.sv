@@ -6,7 +6,7 @@ module MOVCntrl (muxCntrl, SHAMT, MOVZ);
 	input logic MOVZ;
 
 	logic [3:0] cntrl1Logic, cntrl0Logic;
-	logic [2:0] cntrl1Inverter;
+	logic [1:0] cntrl1Inverter;
 	logic [1:0] cntrl0Inverter;
 
 	//Start putting together the control logic
@@ -27,7 +27,7 @@ module MOVCntrl (muxCntrl, SHAMT, MOVZ);
 	//Control logic for mux 32-47:
 	not #DELAY notUnit2(cntrl1Inverter[1], SHAMT[0]);
 	nand #DELAY nandUnit1(cntrl1Logic[2], cntrl1Inverter[1], SHAMT[1]);
-	and #DELAY andUnit3(muxCntrl[2][1], cntrl1Logic[1], MOVZ);
+	and #DELAY andUnit3(muxCntrl[2][1], cntrl1Logic[2], MOVZ);
 
 	not #DELAY notUnit3(cntrl0Inverter[1], SHAMT[0]);
 	and #DELAY andUnit4(muxCntrl[2][0], cntrl0Inverter[1], SHAMT[1]);
@@ -36,7 +36,7 @@ module MOVCntrl (muxCntrl, SHAMT, MOVZ);
 	nand #DELAY nandUnit2(cntrl1Logic[3], SHAMT[1], SHAMT[0]);
 	and #DELAY andUnit5(muxCntrl[3][1], cntrl1Logic[3], MOVZ);
 
-	nand #DELAY nandUnit3(muxCntrl[3][0], SHAMT[0], SHAMT[1]);
+	and #DELAY andUnit6(muxCntrl[3][0], SHAMT[0], SHAMT[1]);
 endmodule
 
 module MOVCntrl_testbench;
