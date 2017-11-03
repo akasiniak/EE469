@@ -2,1146 +2,269 @@
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:14:47 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUnit.sv 
-# -- Compiling module MOVUNIT
-# ** Error: (vlog-13069) ./MOVUnit.sv(3): near "=": syntax error, unexpected '=', expecting ';'.
-# ** Error: ./MOVUnit.sv(23): 'i' is an invalid type in Generate loop. Must be a genvar.
-# -- Compiling module MOVUNIT_testbench
-# ** Error: ./MOVUnit.sv(39): (vlog-2730) Undefined variable: 'IMM'.
-# ** Error: ./MOVUnit.sv(40): (vlog-2730) Undefined variable: 'i'.
-# End time: 00:14:47 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 4, Warnings: 0
+# Start time: 12:42:40 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# ** Error: (vlog-13069) ./CPUControl.sv(9): near "begin": syntax error, unexpected begin.
+# ** Error: (vlog-13069) ./CPUControl.sv(24): near "11": syntax error, unexpected INTEGER NUMBER.
+# ** Error: ./CPUControl.sv(26): (vlog-13205) Syntax error found in the scope following 'ALUSrc'. Is there a missing '::'?
+# End time: 12:42:40 on Nov 03,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
 # ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runlab.do line 7
 # C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "vlog "./MOVUnit.sv""
+# "vlog "./CPUControl.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:15:47 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUnit.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUnit.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:15:47 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:15:47 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:15:47 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:15:47 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:15:47 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUnit_testbench 
-# Start time: 00:15:47 on Nov 03,2017
-# ** Error: (vsim-3170) Could not find 'MOVUnit_testbench'.
-#         Searched libraries:
-#             C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/work
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./runlab.do PAUSED at line 14
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:16:20 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUNIT.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:16:20 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:16:20 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:16:20 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:16:20 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:16:21 on Nov 03,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:15:47 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[0]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[1]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[2]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[3]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[4]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[5]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[6]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[7]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[8]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[9]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[10]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[11]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[12]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[13]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[14]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[15]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[16]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[17]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[18]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[19]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[20]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[21]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[22]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[23]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[24]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[25]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[26]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[27]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[28]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[29]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[30]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[31]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[32]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[33]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[34]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[35]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[36]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[37]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[38]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[39]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[40]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[41]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[42]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[43]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[44]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[45]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[46]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[47]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[48]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[49]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[50]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[51]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[52]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[53]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[54]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[55]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[56]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[57]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[58]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[59]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[60]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[61]/eachMux File: ./mux4to1.sv
-# ** Error (suppressible): (vsim-3053) ./MOVUNIT.sv(24): Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /MOVUNIT_testbench/dut/MOVLogic[62]/eachMux File: ./mux4to1.sv
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./runlab.do PAUSED at line 14
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:17:43 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUNIT.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:17:43 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:17:43 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:17:44 on Nov 03,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:17:44 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:17:44 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:15:47 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Error: Cannot open macro file: MOVUNIT.do
-# Error in macro ./runlab.do line 19
-# Cannot open macro file: MOVUNIT.do
+# Start time: 12:43:24 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# -- Compiling module CPUControl_testbench
+# ** Error: (vlog-13069) ./CPUControl.sv(203): near ".": syntax error, unexpected '.', expecting ')'.
+# ** Error: (vlog-13069) ./CPUControl.sv(241): near "end": syntax error, unexpected end, expecting ';'.
+# End time: 12:43:24 on Nov 03,2017, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 7
+# C:/intelFPGA/17.0/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "do MOVUNIT.do"
-add wave -position end  sim:/MOVUNIT_testbench/result
+# "vlog "./CPUControl.sv""
+do runlab.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:45:47 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# -- Compiling module CPUControl_testbench
+# 
+# Top level modules:
+# 	CPUControl_testbench
+# End time: 12:45:47 on Nov 03,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work CPUControl_testbench 
+# Start time: 12:45:47 on Nov 03,2017
+# Loading sv_std.std
+# Loading work.CPUControl_testbench
+# Loading work.CPUControl
+# ** Error: Cannot open macro file: CPUControl.do
+# Error in macro ./runlab.do line 17
+# Cannot open macro file: CPUControl.do
+#     while executing
+# "do CPUControl.do"
+add wave -position end  sim:/CPUControl_testbench/Reg2Loc
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftc3fbbj".
+#           Attempting to use alternate WLF file "./wlftb0zbej".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftc3fbbj
-add wave -position end  sim:/MOVUNIT_testbench/Rd
-add wave -position end  sim:/MOVUNIT_testbench/IMM16
-add wave -position end  sim:/MOVUNIT_testbench/SHAMT
-add wave -position end  sim:/MOVUNIT_testbench/MOVZ
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/MOVUNIT.do}
+#           Using alternate file: ./wlftb0zbej
+add wave -position end  sim:/CPUControl_testbench/MemtoReg
+add wave -position end  sim:/CPUControl_testbench/RegWrite
+add wave -position end  sim:/CPUControl_testbench/MemWrite
+add wave -position end  sim:/CPUControl_testbench/BrTaken
+add wave -position end  sim:/CPUControl_testbench/UncondBr
+add wave -position end  sim:/CPUControl_testbench/LDURB
+add wave -position end  sim:/CPUControl_testbench/Reg2Loc
+add wave -position end  sim:/CPUControl_testbench/MemtoReg
+add wave -position end  sim:/CPUControl_testbench/RegWrite
+add wave -position end  sim:/CPUControl_testbench/MemWrite
+add wave -position end  sim:/CPUControl_testbench/BrTaken
+add wave -position end  sim:/CPUControl_testbench/UncondBr
+add wave -position end  sim:/CPUControl_testbench/LDURB
+add wave -position end  sim:/CPUControl_testbench/STURB
+add wave -position end  sim:/CPUControl_testbench/MOVZ
+add wave -position end  sim:/CPUControl_testbench/MOVK
+add wave -position end  sim:/CPUControl_testbench/zero
+add wave -position end  sim:/CPUControl_testbench/negative
+add wave -position end  sim:/CPUControl_testbench/ALUSrc
+add wave -position end  sim:/CPUControl_testbench/ALUCntrl
+add wave -position end  sim:/CPUControl_testbench/OPCode
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/CPUControl.do}
 run -all
-run -all
+# @0ps instruction is B
+# @1000ps instruction is B.LT
+# @2000ps instruction is CBZ
+# @3000ps instruction is ADDI
+# @4000ps instruction is ADDS
+# @5000ps instruction is LDUR
+# @6000ps instruction is LDURB
+# @7000ps instruction is STUR
+# @8000ps instruction is STURB
+# @9000ps instruction is SUBS
+# @10000ps instruction is MOVK
+# @11000ps instruction is MOVZ
+# ** Note: $stop    : ./CPUControl.sv(242)
+#    Time: 11 ns  Iteration: 0  Instance: /CPUControl_testbench
+# Break in Module CPUControl_testbench at ./CPUControl.sv line 242
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:18:39 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUNIT.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
+# Start time: 13:03:25 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# -- Compiling module CPUControl_testbench
 # 
 # Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:18:39 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:18:39 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:18:39 on Nov 03,2017, Elapsed time: 0:00:00
+# 	CPUControl_testbench
+# End time: 13:03:25 on Nov 03,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:18:39 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:18:39 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:18:40 on Nov 03,2017, Elapsed time: 0:02:53
-# Errors: 67, Warnings: 3
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:18:40 on Nov 03,2017
+# End time: 13:03:26 on Nov 03,2017, Elapsed time: 0:17:39
+# Errors: 3, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work CPUControl_testbench 
+# Start time: 13:03:26 on Nov 03,2017
 # Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
+# Loading work.CPUControl_testbench
+# Loading work.CPUControl
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftav8nvj".
+#           Attempting to use alternate WLF file "./wlftytscjn".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftav8nvj
+#           Using alternate file: ./wlftytscjn
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
+# @0ps instruction is B
+# @1000ps instruction is B.LT
+# @2000ps instruction is CBZ
+# @3000ps instruction is ADDI
+# @4000ps instruction is ADDS
+# @5000ps instruction is LDUR
+# @6000ps instruction is LDURB
+# @7000ps instruction is STUR
+# @8000ps instruction is STURB
+# @9000ps instruction is SUBS
+# @10000ps instruction is MOVK
+# @11000ps instruction is MOVZ
+# ** Note: $stop    : ./CPUControl.sv(242)
+#    Time: 11 ns  Iteration: 0  Instance: /CPUControl_testbench
+# Break in Module CPUControl_testbench at ./CPUControl.sv line 242
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:20:22 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUNIT.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
+# Start time: 13:04:45 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# -- Compiling module CPUControl_testbench
 # 
 # Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:20:22 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:20:22 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:20:22 on Nov 03,2017, Elapsed time: 0:00:00
+# 	CPUControl_testbench
+# End time: 13:04:45 on Nov 03,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:20:22 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:20:22 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:20:23 on Nov 03,2017, Elapsed time: 0:01:43
-# Errors: 0, Warnings: 3
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:20:23 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftin1mqn".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftin1mqn
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:20:51 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUNIT.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:20:51 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:20:51 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:20:51 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:20:51 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:20:51 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:20:52 on Nov 03,2017, Elapsed time: 0:00:29
-# Errors: 0, Warnings: 3
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:20:52 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlft86r7jv".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft86r7jv
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:21:31 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# ** Warning: ./MOVUNIT.sv(24): (vlog-2697) MSB of part-select into 'muxCntrl' is out of bounds.
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:21:31 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:21:31 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:21:31 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:21:31 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:21:31 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:21:32 on Nov 03,2017, Elapsed time: 0:00:40
-# Errors: 0, Warnings: 3
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:21:32 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftbijc88".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftbijc88
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:22:35 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:22:35 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:22:35 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:22:35 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:22:35 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:22:35 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:22:36 on Nov 03,2017, Elapsed time: 0:01:04
+# End time: 13:04:45 on Nov 03,2017, Elapsed time: 0:01:19
 # Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:22:36 on Nov 03,2017
+# vsim -voptargs=""+acc"" -t 1ps -lib work CPUControl_testbench 
+# Start time: 13:04:45 on Nov 03,2017
 # Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
+# Loading work.CPUControl_testbench
+# Loading work.CPUControl
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlfts4091b".
+#           Attempting to use alternate WLF file "./wlfth2wsqh".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfts4091b
+#           Using alternate file: ./wlfth2wsqh
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
+# @0ps instruction is B
+# @1000ps instruction is B.LT
+# @2000ps instruction is CBZ
+# @3000ps instruction is ADDI
+# @4000ps instruction is ADDS
+# @5000ps instruction is LDUR
+# @6000ps instruction is LDURB
+# @7000ps instruction is STUR
+# @8000ps instruction is STURB
+# @9000ps instruction is SUBS
+# @10000ps instruction is MOVK
+# @11000ps instruction is MOVZ
+# ** Note: $stop    : ./CPUControl.sv(242)
+#    Time: 11 ns  Iteration: 0  Instance: /CPUControl_testbench
+# Break in Module CPUControl_testbench at ./CPUControl.sv line 242
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:23:27 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
+# Start time: 13:07:26 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# -- Compiling module CPUControl_testbench
 # 
 # Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:23:27 on Nov 03,2017, Elapsed time: 0:00:00
+# 	CPUControl_testbench
+# End time: 13:07:26 on Nov 03,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:23:27 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:23:27 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:23:27 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:23:27 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:23:28 on Nov 03,2017, Elapsed time: 0:00:52
+# End time: 13:07:27 on Nov 03,2017, Elapsed time: 0:02:42
 # Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:23:28 on Nov 03,2017
+# vsim -voptargs=""+acc"" -t 1ps -lib work CPUControl_testbench 
+# Start time: 13:07:27 on Nov 03,2017
 # Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
+# Loading work.CPUControl_testbench
+# Loading work.CPUControl
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftk8gkkq".
+#           Attempting to use alternate WLF file "./wlfth60eew".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftk8gkkq
+#           Using alternate file: ./wlfth60eew
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
+# @0ps instruction is B
+# @1000ps instruction is B.LT
+# @2000ps instruction is CBZ
+# @3000ps instruction is ADDI
+# @4000ps instruction is ADDS
+# @5000ps instruction is LDUR
+# @6000ps instruction is LDURB
+# @7000ps instruction is STUR
+# @8000ps instruction is STURB
+# @9000ps instruction is SUBS
+# @10000ps instruction is MOVK
+# @11000ps instruction is MOVZ
+# ** Note: $stop    : ./CPUControl.sv(243)
+#    Time: 12 ns  Iteration: 0  Instance: /CPUControl_testbench
+# Break in Module CPUControl_testbench at ./CPUControl.sv line 243
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:28:03 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
+# Start time: 13:09:24 on Nov 03,2017
+# vlog -reportprogress 300 ./CPUControl.sv 
+# -- Compiling module CPUControl
+# -- Compiling module CPUControl_testbench
 # 
 # Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:28:03 on Nov 03,2017, Elapsed time: 0:00:00
+# 	CPUControl_testbench
+# End time: 13:09:24 on Nov 03,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:28:03 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:28:03 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:28:03 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:28:03 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:28:04 on Nov 03,2017, Elapsed time: 0:04:36
+# End time: 13:09:25 on Nov 03,2017, Elapsed time: 0:01:58
 # Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:28:04 on Nov 03,2017
+# vsim -voptargs=""+acc"" -t 1ps -lib work CPUControl_testbench 
+# Start time: 13:09:25 on Nov 03,2017
 # Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
+# Loading work.CPUControl_testbench
+# Loading work.CPUControl
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlfttbxryn".
+#           Attempting to use alternate WLF file "./wlfttshqs3".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfttbxryn
+#           Using alternate file: ./wlfttshqs3
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:28:43 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:28:44 on Nov 03,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:28:44 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:28:44 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:28:44 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:28:44 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:28:44 on Nov 03,2017, Elapsed time: 0:00:40
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:28:44 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftg7c081".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftg7c081
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:34:38 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:34:38 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:34:38 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:34:38 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:34:38 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:34:38 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:34:38 on Nov 03,2017, Elapsed time: 0:05:54
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:34:38 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftb59gsc".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftb59gsc
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:38:18 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:38:18 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:38:18 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:38:18 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:38:18 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:38:18 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:38:19 on Nov 03,2017, Elapsed time: 0:03:41
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:38:19 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftk50sj6".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftk50sj6
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:39:12 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:39:12 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:39:12 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:39:12 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:39:12 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:39:12 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:39:13 on Nov 03,2017, Elapsed time: 0:00:54
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:39:13 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftjx6fgd".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftjx6fgd
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:44:26 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:44:26 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:44:26 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:44:26 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:44:26 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:44:26 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:44:27 on Nov 03,2017, Elapsed time: 0:05:14
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:44:27 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlft7zzvrc".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft7zzvrc
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:50:11 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:50:11 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:50:11 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:50:11 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:50:11 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:50:11 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:50:12 on Nov 03,2017, Elapsed time: 0:05:45
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:50:12 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlft3w5nqe".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft3w5nqe
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:53:04 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:53:05 on Nov 03,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:53:05 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:53:05 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:53:05 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:53:05 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:53:06 on Nov 03,2017, Elapsed time: 0:02:54
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:53:06 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlft2k916r".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft2k916r
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:54:29 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:54:29 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:54:29 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:54:29 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:54:29 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:54:29 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:54:29 on Nov 03,2017, Elapsed time: 0:01:23
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:54:29 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftys5q9w".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftys5q9w
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:56:26 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:56:26 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:56:26 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:56:26 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:56:26 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:56:26 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:56:27 on Nov 03,2017, Elapsed time: 0:01:58
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:56:27 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlftd0vfe4".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftd0vfe4
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-do runlab.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:57:36 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVUNIT.sv 
-# -- Compiling module MOVUNIT
-# -- Compiling module MOVUNIT_testbench
-# 
-# Top level modules:
-# 	MOVUNIT_testbench
-# End time: 00:57:36 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:57:36 on Nov 03,2017
-# vlog -reportprogress 300 ./MOVCntrl.sv 
-# -- Compiling module MOVCntrl
-# -- Compiling module MOVCntrl_testbench
-# 
-# Top level modules:
-# 	MOVCntrl_testbench
-# End time: 00:57:36 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 00:57:36 on Nov 03,2017
-# vlog -reportprogress 300 ./mux4to1.sv 
-# -- Compiling module mux4to1
-# -- Compiling module mux4to1_testbench
-# 
-# Top level modules:
-# 	mux4to1_testbench
-# End time: 00:57:36 on Nov 03,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 00:57:36 on Nov 03,2017, Elapsed time: 0:01:09
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work MOVUNIT_testbench 
-# Start time: 00:57:36 on Nov 03,2017
-# Loading sv_std.std
-# Loading work.MOVUNIT_testbench
-# Loading work.MOVUNIT
-# Loading work.MOVCntrl
-# Loading work.mux4to1
-# Loading work.mux2to1
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Megan Swanson  Hostname: DESKTOP-HLF79EF  ProcessID: 6664
-#           Attempting to use alternate WLF file "./wlft55hgk9".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft55hgk9
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# End time: 00:59:37 on Nov 03,2017, Elapsed time: 0:02:01
+# @0ps instruction is B
+# @1000ps instruction is B.LT
+# @2000ps instruction is CBZ
+# @3000ps instruction is ADDI
+# @4000ps instruction is ADDS
+# @5000ps instruction is LDUR
+# @6000ps instruction is LDURB
+# @7000ps instruction is STUR
+# @8000ps instruction is STURB
+# @9000ps instruction is SUBS
+# @10000ps instruction is MOVK
+# @11000ps instruction is MOVZ
+# ** Note: $stop    : ./CPUControl.sv(243)
+#    Time: 12 ns  Iteration: 0  Instance: /CPUControl_testbench
+# Break in Module CPUControl_testbench at ./CPUControl.sv line 243
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Alexander Kasiniak/Desktop/EE469/lab3/CPUControl.do}
+# End time: 13:10:47 on Nov 03,2017, Elapsed time: 0:01:22
 # Errors: 0, Warnings: 2
