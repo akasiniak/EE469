@@ -1,7 +1,9 @@
-module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, UncondBr, LDURB, STURB, MOVZ, MOVK, ALUCntrl, OPCode, zero, negative);
-	output logic Reg2Loc, MemtoReg, RegWrite, MemWrite, BrTaken, UncondBr, LDURB, STURB, MOVZ, MOVK;
+module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, UncondBr, LDURB, xfer_size,
+					MOVZ, MOVK, ALUCntrl, OPCode, zero, negative);
+	output logic Reg2Loc, MemtoReg, RegWrite, MemWrite, BrTaken, UncondBr, LDURB, MOVZ, MOVK; // Will need to add separate read_enable signal if setting it to ~MemWrite doesn't work
 	output logic [1:0] ALUSrc;
 	output logic [2:0] ALUCntrl;
+	output logic [3:0] xfer_size;
 	input logic [31:0] OPCode;
 	input logic zero, negative, negativeOverflow, overflow;
 	always_comb begin
@@ -15,8 +17,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b1;
 				UncondBr = 1'b1;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;
 				ALUCntrl = 3'bzzz;
@@ -29,8 +32,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = negativeOverflow;
 				UncondBr = 1'b0;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;
 				ALUCntrl = 3'bzzz;
@@ -43,8 +47,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = zero;
 				UncondBr = 1'b0;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;
 				ALUCntrl = 3'b000;
@@ -57,8 +62,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'b0;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'b0;
 				MOVK = 1'b0;
 				ALUCntrl = 3'b010;
@@ -71,8 +77,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'b0;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'b0;
 				MOVK = 1'b0;
 				ALUCntrl = 3'b010;
@@ -85,8 +92,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'b0;
-				STURB = 1'bz;
+				xfer_size = 4'b1000;
 				MOVZ = 1'b0;
 				MOVK = 1'b0;
 				ALUCntrl = 3'b010;
@@ -99,8 +107,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'b1;
-				STURB = 1'bz;
+				xfer_size = 4'b0001;
 				MOVZ = 1'b0;
 				MOVK = 1'b0;
 				ALUCntrl = 3'b010;
@@ -113,8 +122,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'b0;
+				xfer_size = 4'b1000;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;
 				ALUCntrl = 3'b010;
@@ -127,8 +137,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'b1;
+				xfer_size = 4'b0001;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;
 				ALUCntrl = 3'b010;
@@ -141,8 +152,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'b0;
 				MOVK = 1'b0;
 				ALUCntrl = 3'b011;
@@ -155,8 +167,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'b0;
 				MOVK = 1'b1;
 				ALUCntrl = 3'bzzz;
@@ -169,8 +182,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'b1;
 				MOVK = 1'bz;
 				ALUCntrl = 3'bzzz;
@@ -183,8 +197,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemWrite = 1'bz;
 				BrTaken = 1'bz;
 				UncondBr = 1'bz;
+				read_enable = ~MemWrite;
 				LDURB = 1'bz;
-				STURB = 1'bz;
+				xfer_size = 4'bzzzz;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;	
 				ALUCntrl = 3'bzzz;		
@@ -194,13 +209,14 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 endmodule 
 
 module CPUControl_testbench;
-	logic Reg2Loc, MemtoReg, RegWrite, MemWrite, BrTaken, UncondBr, LDURB, STURB, MOVZ, MOVK, zero, negative;
+	logic Reg2Loc, MemtoReg, RegWrite, MemWrite, BrTaken, UncondBr, LDURB, read_enable, MOVZ, MOVK, zero, negative;
 	logic [1:0] ALUSrc;
 	logic [2:0] ALUCntrl;
+	logic [3:0] xfer_size;
 	logic [31:0] OPCode;
 
-	CPUControl dut(.Reg2Loc, .MemtoReg, .RegWrite, .MemWrite, .BrTaken, .UncondBr, .LDURB, .STURB, .MOVZ, .MOVK, .zero, .negative, 
-					.ALUSrc, .ALUCntrl, .OPCode);
+	CPUControl dut(.Reg2Loc, .ALUSrc, .MemtoReg, .RegWrite, .MemWrite, .BrTaken, .UncondBr, .LDURB, .xfer_size, 
+					.read_enable, .MOVZ, .MOVK, .ALUCntrl, .OPCode, .zero, .negative);
 	initial begin
 		negative = 1'b1;
 		zero = 1'b1;
@@ -232,8 +248,8 @@ module CPUControl_testbench;
 		OPCode[31:20] = 11'b11111000000; //STUR
 		$display("@%0dps instruction is STUR", $time);
 		#1000;
-		OPCode[31:20] = 11'b00111000000; //STURB
-		$display("@%0dps instruction is STURB", $time);
+		OPCode[31:20] = 11'b00111000000; //xfer_size
+		$display("@%0dps instruction is xfer_size", $time);
 		#1000;
 		OPCode[31:20] = 11'b11001011000; //SUBS
 		$display("@%0dps instruction is SUBS", $time);

@@ -79,7 +79,7 @@ module datamem_testbench ();
 	logic		[3:0]		xfer_size;
 	logic		[63:0]	read_data;
 	
-	datamem dut (.address, .write_enable, .write_data, .clk, .xfer_size, .read_data);
+	datamem dut (.address, .write_enable, .write_data, .clk, .xfer_size, .read_data, .read_enable);
 	
 	initial begin // Set up the clock
 		clk <= 0;
