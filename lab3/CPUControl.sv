@@ -3,9 +3,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 	output logic [1:0] ALUSrc;
 	output logic [2:0] ALUCntrl;
 	input logic [31:0] OPCode;
-	input logic zero, negative;
-
+	input logic zero, negative, negativeOverflow, overflow;
 	always_comb begin
+		xor actuallyNegative(negativeOverflow, negative, overflow)
 		casez (OPCode[31:20])
 			11'b000101zzzzz : begin //B
 				Reg2Loc = 1'bz;
@@ -27,7 +27,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				MemtoReg = 1'bz;
 				RegWrite = 1'b0;
 				MemWrite = 1'b0;
-				BrTaken = negative;
+				BrTaken = negativeOverflow;
 				UncondBr = 1'b0;
 				LDURB = 1'bz;
 				STURB = 1'bz;
@@ -47,7 +47,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				STURB = 1'bz;
 				MOVZ = 1'bz;
 				MOVK = 1'bz;
-				ALUCntrl = 3'bzzz;
+				ALUCntrl = 3'b000;
 			end
 			11'b1001000100z : begin //ADDI
 				Reg2Loc = 1'b1;
@@ -148,7 +148,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				ALUCntrl = 3'b011;
 			end
 			11'b111100101zz : begin //MOVK
-				Reg2Loc = 1'bz;
+				Reg2Loc = 1'b0;
 				ALUSrc = 2'bzz;
 				MemtoReg = 1'bz;
 				RegWrite = 1'b1;
@@ -162,7 +162,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				ALUCntrl = 3'bzzz;
 			end
 			11'b110100101zz : begin //MOVZ
-				Reg2Loc = 1'bz;
+				Reg2Loc = 1'b0;
 				ALUSrc = 2'bzz;
 				MemtoReg = 1'bz;
 				RegWrite = 1'b1;
@@ -176,7 +176,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				ALUCntrl = 3'bzzz;
 			end
 			default : begin //No instruction
-				Reg2Loc = 1'bz;
+				Reg2Loc = 1'b0;
 				ALUSrc = 2'bzz;
 				MemtoReg = 1'bz;
 				RegWrite = 1'bz;
@@ -207,6 +207,10 @@ module CPUControl_testbench;
 		OPCode[31:20] = 11'b00010110101; //B
 		$display("@%0dps instruction is B", $time);
 		#1000;
+		assert(RegWrite == 1'b0);
+		assert(MemWrite == 1'b0);
+		assert(BrTaken == 1'b1);
+		assert(UncondBr == 1'b1);
 		OPCode[31:20] = 11'b01010100101; //B.LT
 		$display("@%0dps instruction is B.LT", $time);
 		#1000;

@@ -1,13 +1,14 @@
 `timescale 1ns/10ps
 module D_FF_Enable (out, in, reset, enable, clk);
+	parameter DELAY = 0.05;
 	input logic in, reset, clk, enable;
 	output out;
 	logic dEnabled, qEnabled, intoTheDFF;
 	
 	
-	and #50 dAnd (dEnabled, in, enable);
-	and #50 qAnd (qEnabled, out, ~enable);
-	or #50 theOrGate (intoTheDFF, dEnabled, qEnabled);
+	and #DELAY dAnd (dEnabled, in, enable);
+	and #DELAY qAnd (qEnabled, out, ~enable);
+	or #DELAY theOrGate (intoTheDFF, dEnabled, qEnabled);
 	D_FF theDFF (.q(out), .d(intoTheDFF), .clk, .reset);
 endmodule
 

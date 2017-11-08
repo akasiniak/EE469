@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 module full_adder(out, Cout, A, B, Cin);
-	parameter DELAY = 0.5;
+	parameter DELAY = 0.05;
 	output logic out, Cout;
 	input logic A, B, Cin;
 	logic xor1_out, and1_out, and2_out;

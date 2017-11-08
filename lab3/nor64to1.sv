@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 module nor64to1 (out, Din);
-	parameter DELAY = 0.5;
+	parameter DELAY = 0.05;
 	input logic [63:0] Din;
 	output logic out;
 	logic [3:0] norOut;

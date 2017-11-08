@@ -1,13 +1,14 @@
 `timescale 1ns/10ps
 module mux2to1 (out, in, select);
+	parameter DELAY = 0.05;
 	input logic [1:0] in;
 	input logic select;
 	output logic out;
 	logic topBitSelect, bottomBitSelect;
 	
-	and #50 theTopAndGate(topBitSelect, in[1], select);
-	and #50 theBottomAndGate(bottomBitSelect, in[0], ~select);
-	or #50 theOrGate(out, topBitSelect, bottomBitSelect);
+	and #DELAY theTopAndGate(topBitSelect, in[1], select);
+	and #DELAY theBottomAndGate(bottomBitSelect, in[0], ~select);
+	or #DELAY theOrGate(out, topBitSelect, bottomBitSelect);
 endmodule
 
 module mux2to1_testbench;

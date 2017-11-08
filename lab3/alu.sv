@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 module alu (A, B, cntrl, result, negative, zero, overflow, carry_out);
-	parameter DELAY = 0.5;
+	parameter DELAY = 0.05;
 	input logic [63:0] A, B;
 	input logic [2:0] cntrl;
 	output logic [63:0] result;

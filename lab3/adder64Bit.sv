@@ -2,10 +2,11 @@
 module adder64Bit(result, A, B);
 	input logic [63:0] A, B;
 	output logic [63:0] result;
-	logic [63:0] carryLogic;
+	logic [63:0] carryLogic, negMuxOut;
 	parameter DELAY = 0.5;
 
 	full_adder adder0(.out(result[0]), .Cout(carryLogic[0]), .A(A[0]), .B(B[0]), .Cin(1'b0));
+
 	genvar i;
 	generate
 		for(i = 1; i < 64; i++) begin: eachAdder
