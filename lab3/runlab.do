@@ -12,16 +12,24 @@ vlog "./programCounter.sv"
 vlog "./instructmem.sv"
 vlog "./signExtend.sv"
 vlog "./instructionGet.sv"
+vlog "./alu.sv"
+vlog "./execution.sv"
+vlog "./mux4to1.sv"
+vlog "./CPUControl.sv"
+vlog "./nor64to1.sv"
+vlog "./MOVUNIT.sv"
+vlog "./nor16to1.sv"
+vlog "./MOVCntrl.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work instructionGet_testbench
+vsim -voptargs="+acc" -t 1ps -lib work execution_testbench
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do instructionGet.do
+do execution.do
 
 # Set the window types
 view wave
