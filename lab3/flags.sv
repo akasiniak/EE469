@@ -1,12 +1,12 @@
-module flags (in, out, clk, reset);
-	input logic [2:0] in;
-	output logic [2:0] out;
-	input logic clk, reset;
+module flags (in, out, clk, reset, enable);
+	input logic [3:0] in;
+	output logic [3:0] out;
+	input logic clk, reset, enable;
 
 	genvar i;
 	generate
-		for(i = 0; i < 3; i++) begin: eachFF
-			D_FF flipFlop (.q(out[i]), .d(in[i]), .reset, .clk);
+		for(i = 0; i < 4; i++) begin: eachFF
+			D_FF_Enable flipFlop (.out(out[i]), .in(in[i]), .reset, .clk, .enable);
 		end
 	endgenerate
 endmodule

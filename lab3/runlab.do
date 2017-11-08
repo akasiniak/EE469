@@ -20,16 +20,18 @@ vlog "./nor64to1.sv"
 vlog "./MOVUNIT.sv"
 vlog "./nor16to1.sv"
 vlog "./MOVCntrl.sv"
+vlog "./SingleCycleCPU.sv"
+vlog "./flags.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
 #     testbench module you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work execution_testbench
+vsim -voptargs="+acc" -t 1ps -lib work SingleCycleCPU_testbench
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for
 #     the module you are testing.
-do execution.do
+do SingleCycleCPU.do
 
 # Set the window types
 view wave

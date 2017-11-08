@@ -1,18 +1,19 @@
 `timescale 1ns/10ps
-module execution(zero, negative, carryOut, overflow, OPCode, Reg2Loc, MemWrite, LDURB, MemtoReg, MOVZ, MOVK, 
-				RegWrite, ALUSrc, ALUCntrl, xfer_size, clk, reset, read_enable);
+module execution(zeroOut, negative, carryOut, overflow, OPCode, Reg2Loc, MemWrite, LDURB, MemtoReg, MOVZ, MOVK, 
+				RegWrite, ALUSrc, ALUCntrl, xfer_size, clk, reset, read_enable, NOOP);
 	parameter DELAY = 0.05;	
 	input logic [31:0] OPCode;
-	input logic Reg2Loc, read_enable, MemWrite, LDURB, MemtoReg, MOVZ, MOVK, RegWrite, clk, reset; // Will need to add separate read_enable signal if setting it to ~MemWrite doesn't work
+	input logic Reg2Loc, read_enable, MemWrite, LDURB, MemtoReg, MOVZ, MOVK, RegWrite, clk, reset, NOOP; // Will need to add separate read_enable signal if setting it to ~MemWrite doesn't work
 	input logic [1:0] ALUSrc;
 	input logic [2:0] ALUCntrl;
 	input logic [3:0] xfer_size;
- 	output logic zero, negative, carryOut, overflow;
+ 	output logic zeroOut, negative, carryOut, overflow;
 
 	logic [63:0] Da, Db, Daddr9SE, Imm12SE, ALUSrcMuxOut, ALUOut, MemOut,LDURBzp, LDURBMuxOut, MemtoRegMuxOut, 
 				MOVResult, MOVMuxOut;
 	logic [4:0] Reg2LocMuxOut;
-	logic negFlag, overFlag, carryFlag, MOVOROut;
+	logic negFlag, overFlag, carryFlag, MOVOROut, zero, zeroFlag;
+	assign zeroOut = flagReg.eachFF[0].flipFlop.intoTheDFF;
 
 	// Regfile
 	regfile registers (
@@ -32,12 +33,12 @@ module execution(zero, negative, carryOut, overflow, OPCode, Reg2Loc, MemWrite, 
 			.cntrl(ALUCntrl), 
 			.result(ALUOut), 
 			.negative(negFlag), 
-			.zero(zero), 
+			.zero(zeroFlag), 
 			.overflow(overFlag), 
 			.carry_out(carryFlag));
 
 	// Flag register NOTE: zero flag does not need to be stored, goes immediately to CPUControl
-	flags flagReg (.in({carryFlag, overFlag, negFlag}), .out({carryOut, overflow, negative}), .clk, .reset);
+	flags flagReg (.in({carryFlag, overFlag, negFlag, zeroFlag}), .out({carryOut, overflow, negative, zero}), .clk, .reset, .enable(~NOOP));
 	
 	// Data Memory
 	datamem memory (
@@ -59,7 +60,7 @@ module execution(zero, negative, carryOut, overflow, OPCode, Reg2Loc, MemWrite, 
 
 	//signExtendUnits
 	signExtend #(.WIDTH(9)) Daddr9(.out(Daddr9SE), .in(OPCode[20:12]));
-	signExtend #(.WIDTH(12)) Imm12(.out(Imm12SE), .in(OPCode[21:10]));
+	zeroPad #(.WIDTH(12)) Imm12(.out(Imm12SE), .in(OPCode[21:10]));
 
 	// Zero pad for LDRUB
 	zeroPad #(.WIDTH(8)) LDURBZPad(.out(LDURBzp), .in(MemOut[7:0]));
@@ -83,7 +84,7 @@ module execution(zero, negative, carryOut, overflow, OPCode, Reg2Loc, MemWrite, 
 endmodule // execution
 
 module execution_testbench;
-	parameter ClockDelay = 2000;
+	parameter ClockDelay = 100;
 	logic [31:0] OPCode;
 	logic Reg2Loc, MemWrite, LDURB, MemtoReg, MOVZ, MOVK, RegWrite, clk, reset, read_enable; // Will need to add separate read_enable signal if setting it to ~MemWrite doesn't work
 	logic [1:0] ALUSrc;
@@ -117,43 +118,43 @@ module execution_testbench;
 		@(posedge clk)
 		OPCode[31:21] = 11'b10110100101; //CBZ
 		OPCode[20:0] = 21'd1311;
-		$display("@%0dps instruction is CBZ", $time);
+		$display("@%0dps instruction is CBZ", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b10010001001; //ADDI
 		OPCode[20:0] = 21'd1216;
-		$display("@%0dps instruction is ADDI", $time);
+		$display("@%0dps instruction is ADDI", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b10001011000; //ADDS
 		OPCode[20:0] = 21'd4491;
-		$display("@%0dps instruction is ADDS", $time);
+		$display("@%0dps instruction is ADDS", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b11111000010; //LDUR
 		OPCode[20:0] = 21'd3231;
-		$display("@%0dps instruction is LDUR", $time);
+		$display("@%0dps instruction is LDUR", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b00111000010; //LDURB
 		OPCode[20:0] = 21'd1774;
-		$display("@%0dps instruction is LDURB", $time);
+		$display("@%0dps instruction is LDURB", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b11111000000; //STUR
 		OPCode[20:0] = 21'd7936;
-		$display("@%0dps instruction is STUR", $time);
+		$display("@%0dps instruction is STUR", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b00111000000; //xfer_size
 		OPCode[20:0] = 21'd8987;
-		$display("@%0dps instruction is xfer_size", $time);
+		$display("@%0dps instruction is xfer_size", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b11001011000; //SUBS
 		OPCode[20:0] = 21'd7236;
-		$display("@%0dps instruction is SUBS", $time);
+		$display("@%0dps instruction is SUBS", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b11110010110; //MOVK
 		OPCode[20:0] = 21'd9234;
-		$display("@%0dps instruction is MOVK", $time);
+		$display("@%0dps instruction is MOVK", $time * 1000);
 		@(posedge clk);
 		OPCode[31:21] = 11'b11010010101; //MOVZ
 		OPCode[20:0] = 21'd3475;
-		$display("@%0dps instruction is MOVZ", $time);
+		$display("@%0dps instruction is MOVZ", $time * 1000);
 		@(posedge clk);
 		$stop;
 	end
