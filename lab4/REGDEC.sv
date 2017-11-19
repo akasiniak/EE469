@@ -2,13 +2,13 @@
 //This module does all of the neccessary operations of the REG/DEC stage. Selects which data to read from the RegFile, chooses what goes into the
 //B port of the ALU, decides on forwarding, and sends all the control logic to the next stage.
 
-module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, STURB, Mem2Reg, read_enable, xfer_size, RegWrite, NOOP, ALUA, ALUB,
+module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, xfer_size, RegWrite, NOOP, ALUA, ALUB,
 				OPCode, Db, zero, ALUSrc, Reg2Loc, OPCodeIn, ExForward, MemForward, WritetoReg, ForwardMuxA, ForwardMuxB, clk, reset,
-				MemWriteIn, MOVZIn, MOVKIn, STURBIn, Mem2RegIn, RegWriteIn, ALUCntrlIn, xfer_sizeIn, read_enableIn, NOOPIn, Rd);
+				MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, ALUCntrlIn, xfer_sizeIn, read_enableIn, NOOPIn, Rd);
 	parameter DELAY = 0.05;
 	output logic [63:0] ALUA, ALUB, Db;
 	output logic [31:0] OPCode;
-	output logic MemWrite, MOVZ, MOVK, STURB, Mem2Reg, read_enable, NOOP, zero, RegWrite;
+	output logic MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, NOOP, zero, RegWrite;
 	output logic [3:0] xfer_size;
 	output logic [2:0] ALUCntrl;
 	input logic [31:0] OPCodeIn;
@@ -16,7 +16,7 @@ module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, STURB, Mem2Reg, read_enable, xfer
 	input logic [1:0] ALUSrc;
 	input logic Reg2Loc, clk, reset;
 	input logic [1:0] ForwardMuxB, ForwardMuxA;
-	input logic MemWriteIn, MOVZIn, MOVKIn, STURBIn, Mem2RegIn, RegWriteIn, read_enableIn, NOOPIn;
+	input logic MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn, NOOPIn;
 	input logic [2:0] ALUCntrlIn;
 	input logic [3:0] xfer_sizeIn;
 	input logic [4:0] Rd;
@@ -53,8 +53,8 @@ module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, STURB, Mem2Reg, read_enable, xfer
 	register #(.WIDTH(64)) ALUAReg (.dataOut(ALUA), .dataIn(ForwardMuxAOut), .enable(1'b1), .clk, .reset); //send ALUA
 	register #(.WIDTH(32)) OPCodeReg (.dataOut(OPCode), .dataIn(OPCodeIn), .enable(1'b1), .clk, .reset); //send OPCode
 	register #(.WIDTH(64)) DbReg (.dataOut(Db), .dataIn(DbFromReg), .enable(1'b1), .clk, .reset); //send Db for writing to memory
-	register #(.WIDTH(15)) ControlReg (.dataOut({ALUCntrl, MemWrite, MOVZ, MOVK, STURB, Mem2Reg, RegWrite, read_enable, xfer_size, NOOP}), 
-									.dataIn({ALUCntrlIn, MemWriteIn, MOVZIn, MOVKIn, STURBIn, Mem2RegIn, RegWriteIn, read_enableIn, xfer_sizeIn, NOOPIn}), 
+	register #(.WIDTH(15)) ControlReg (.dataOut({ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, xfer_size, NOOP}), 
+									.dataIn({ALUCntrlIn, MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn, xfer_sizeIn, NOOPIn}), 
 									.enable(1'b1), 
 									.clk, 
 									.reset); //send all necessary control logic
@@ -63,7 +63,7 @@ endmodule
 module REGDEC_testbench();
 	logic [63:0] ALUA, ALUB, Db;
 	logic [31:0] OPCode;
-	logic MemWrite, MOVZ, MOVK, STURB, Mem2Reg, read_enable, NOOP, zero, RegWrite;
+	logic MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, NOOP, zero, RegWrite;
 	logic [3:0] xfer_size;
 	logic [2:0] ALUCntrl;
 	logic [31:0] OPCodeIn;
@@ -71,14 +71,14 @@ module REGDEC_testbench();
 	logic [1:0] ALUSrc;
 	logic Reg2Loc, clk, reset;
 	logic [1:0] ForwardMuxB, ForwardMuxA;
-	logic MemWriteIn, MOVZIn, MOVKIn, STURBIn, Mem2RegIn, RegWriteIn, read_enableIn, NOOPIn;
+	logic MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn, NOOPIn;
 	logic [2:0] ALUCntrlIn;
 	logic [3:0] xfer_sizeIn;
 	logic [4:0] Rd;
 
-	REGDEC dut (.ALUCntrl, .MemWrite, .MOVZ, .MOVK, .STURB, .Mem2Reg, .read_enable, .xfer_size, .NOOP, .ALUA, .ALUB,
+	REGDEC dut (.ALUCntrl, .MemWrite, .MOVZ, .MOVK, .LDURB, .Mem2Reg, .read_enable, .xfer_size, .NOOP, .ALUA, .ALUB,
 		.OPCode, .Db, .zero, .ALUSrc, .Reg2Loc, .OPCodeIn, .ExForward, .MemForward, .RegWrite, .WritetoReg, .ForwardMuxA, .ForwardMuxB, .clk, .reset,
-		.MemWriteIn, .MOVZIn, .MOVKIn, .STURBIn, .Mem2RegIn, .RegWriteIn, .ALUCntrlIn, .xfer_sizeIn, .read_enableIn, .NOOPIn, .Rd);
+		.MemWriteIn, .MOVZIn, .MOVKIn, .LDURBIn, .Mem2RegIn, .RegWriteIn, .ALUCntrlIn, .xfer_sizeIn, .read_enableIn, .NOOPIn, .Rd);
 	parameter CLOCK_PERIOD=200;
 	initial begin
 	clk <= 0;
@@ -146,7 +146,7 @@ module REGDEC_testbench();
 		MemWriteIn <= 1'b1;
 		MOVZIn <= 1'b1;
 		MOVKIn <= 1'b1;
-		STURBIn <= 1'b0;
+		LDURBIn <= 1'b0;
 		Mem2RegIn <= 1'b1;
 		read_enableIn <= 1'b0;
 		xfer_sizeIn[3:0] <= 4'b0000;
