@@ -1,11 +1,11 @@
-module register (dataOut, dataIn, enable, clk, reset);
-	input logic [63:0] dataIn;
+module register #(parameter WIDTH = 64) (dataOut, dataIn, enable, clk, reset);
+	input logic [WIDTH-1:0] dataIn;
 	input logic enable, reset, clk;
-	output logic [63:0] dataOut;
+	output logic [WIDTH-1:0] dataOut;
 	
 	genvar i;
 	generate
-		for(i = 0; i < 64; i++) begin: eachD_FF_Enable
+		for(i = 0; i < WIDTH; i++) begin: eachD_FF_Enable
 			D_FF_Enable dataStore (.out(dataOut[i]), .in(dataIn[i]), .reset, .clk, .enable);
 		end
 	endgenerate
