@@ -34,7 +34,7 @@ module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, xfer
 					   .ReadRegister2(Reg2LocMuxOut) , 
 					   .clk);
 
-	nor64to1 #DELAY zeroGate (.out(zero), .Din(DbFromReg)); //zero flag will now come from here
+	nor64to1 #DELAY zeroGate (.out(zero), .Din(ForwardMuxBOut)); //zero flag will now come from here
 	signExtend #(.WIDTH(9)) Daddr9(.out(AddrSE), .in(OPCodeIn[20:12]));
 	zeroPad #(.WIDTH(12)) Imm12(.out(ImmSE), .in(OPCodeIn[21:10]));
 	generate
