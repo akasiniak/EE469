@@ -14,7 +14,7 @@ module MEM (Dw, MemForward, RegWrite, Rd, OPCodeIn, ALUOut, DbIn, MemWriteIn, MO
 	input logic MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn;
 	input logic [3:0] xfer_sizeIn;
 
-	logic [63:0] MemOut, MemOutZP, LDURBMuxOut, Mem2RegMuxOut, MOVResult;
+	logic [63:0] MemOut, MemOutZP, LDURBMuxOut, Mem2RegMuxOut, MOVResult, MOVMuxOut;
 	logic MOVOROut;
 
 	// Data Memory
@@ -39,16 +39,16 @@ module MEM (Dw, MemForward, RegWrite, Rd, OPCodeIn, ALUOut, DbIn, MemWriteIn, MO
 	zeroPad #(.WIDTH(8)) LDURBZPad(.out(MemOutZP), .in(MemOut[7:0]));
 
 	// OR gate for MOVZ and MOVK signal
-	or #DELAY movOR(MOVOROut, MOVZ, MOVK);
+	or #DELAY movOR(MOVOROut, MOVZIn, MOVKIn);
 
-	assign MemForward = LDURBMuxOut;
+	assign MemForward[63:0] = Mem2RegMuxOut[63:0];
 
 	genvar i;
 	generate
 		for(i = 0; i < 64; i++) begin: eachMux
-			mux2to1 LDURBMux(.out(LDURBMuxOut[i]), .in({MemOutZP[i], MemOut[i]}), .select(LDURB));
-			mux2to1 MemtoRegMux(.out(Mem2RegMuxOut[i]), .in({LDURBMuxOut[i], ALUOut[i]}), .select(Mem2Reg));
-			mux2to1 MOVMux(.out(Dw[i]), .in({MOVResult[i], Mem2RegMuxOut[i]}), .select(MOVOROut));
+			mux2to1 LDURBMux(.out(LDURBMuxOut[i]), .in({MemOutZP[i], MemOut[i]}), .select(LDURBIn));
+			mux2to1 MemtoRegMux(.out(Mem2RegMuxOut[i]), .in({LDURBMuxOut[i], ALUOut[i]}), .select(Mem2RegIn));
+			mux2to1 MOVMux(.out(MOVMuxOut[i]), .in({MOVResult[i], Mem2RegMuxOut[i]}), .select(MOVOROut));
 		end
 	endgenerate
 

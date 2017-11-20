@@ -1,264 +1,130 @@
-module forwardingUnit (ForwardMuxControlA, ForwardMuxControlB, REGDECOPCode, EXOPCode, MEMOPCode, EXRegWrite, MEMRegWrite);
-	output logic ForwardMuxControlB, ForwardMuxControlA;
-	input logic [31:0] REGDECOPCode, EXOPCode, MEMOPCode;
+module forwardingUnit (ForwardMuxControlA, ForwardMuxControlB, REGDECOPCode, EXOPWriteReg, MEMOPWriteReg, RdOrRm, Rn, EXRegWrite, MEMRegWrite);
+	output logic [1:0] ForwardMuxControlB, ForwardMuxControlA;
+	input logic [31:0] REGDECOPCode;
+	input logic [4:0] MEMOPWriteReg, EXOPWriteReg, RdOrRm, Rn;
 	input logic EXRegWrite, MEMRegWrite;
 
-	initial begin //default case: no forwarding
-		ForwardMuxControlA[1:0] = 2'b00;
-		ForwardMuxControlB[1:0] = 2'b00;
-	end
-
+	//logic for ForwardMuxControlA
 	always_comb begin
-		case({EXRegWrite, MEMRegWrite}) begin
-			2'b10: begin //Writing in the EX stage, but not MEM
-				if(EXOPCode != 5'b11111) begin
-					case(REGDECOPCode) begin
-						11'b10110100zzz: begin //CBZ
-							if(REGDECOPCode[4:0] == EXOPCode[4:0]) begin //Rd's of both OPCodes match
-								ForwardMuxControlB[1:0] = 2'b01;
-							end
-						end
-						11'b1001000100z: begin //ADDI
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-						end
-						11'b10101011000: begin //ADDS
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-							if(REGDECOPCode[20:16] == EXOPCode[4:0]) begin //Rm of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b01;
-							end
-						end
-						11'b11111000010: begin //LDUR
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-						end
-						11'b00111000010: begin //LDURB
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-						end
-						11'b11111000000: begin //STUR
-							if(REGDECOPCode[4:0] == EXOPCode[4:0]) begin //Rd of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b01;
-							end							
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-						end
-						11'b00111000000: begin //STURB
-							if(REGDECOPCode[4:0] == EXOPCode[4:0]) begin //Rd of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b01;
-							end							
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-						end
-						11'b11101011000: begin //SUBS
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end
-							if(REGDECOPCode[20:16] == EXOPCode[4:0]) begin //Rm of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b01;
-							end
-						end
-						default: begin //Instruction where you don't read from a register
-							ForwardMuxControlA[1:0] = 2'b00;
-							ForwardMuxControlA[1:0] = 2'b00;
-						end 
-					endcase
-				end
-			end
-			2'b01: begin //Writing in the MEM stage, but not EX
-				if(MEMOPCode != 5'b11111) begin
-					case(REGDECOPCode) begin
-						11'b10110100zzz: begin //CBZ
-							if(REGDECOPCode[4:0] == MEMOPCode[4:0]) begin //Rd's of both OPCodes match
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						11'b1001000100z: begin //ADDI
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-						11'b10101011000: begin //ADDS
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-							if(REGDECOPCode[20:16] == MEMOPCode[4:0]) begin //Rm of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						11'b11111000010: begin //LDUR
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-						11'b00111000010: begin //LDURB
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-						11'b11111000000: begin //STUR
-							if(REGDECOPCode[4:0] == MEMOPCode[4:0]) begin //Rd of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b10;
-							end							
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-						11'b00111000000: begin //STURB
-							if(REGDECOPCode[4:0] == MEMOPCode[4:0]) begin //Rd of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b10;
-							end							
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-						11'b11101011000: begin //SUBS
-							if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-							if(REGDECOPCode[20:16] == MEMOPCode[4:0]) begin //Rm of REGDEC matches Rd of EX
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						default: begin //Instruction where you don't read from a register
-							ForwardMuxControlA[1:0] = 2'b00;
-							ForwardMuxControlB[1:0] = 2'b00;
-						end 
-					endcase
-				end
-			end
-			2'b11: begin //Writing in the EX stage, and MEM
-				case(REGDECOPCode) begin
-					11'b10110100zzz: begin //CBZ
-						if(REGDECOPCode[4:0] != 5'b11111) begin
-							if(REGDECOPCode[4:0] == EXOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[4:0] == MEMOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
+		if(Rn[4:0] != 5'b11111) begin
+			if(REGDECOPCode[31:22] == 10'b1001000100 ||
+			   REGDECOPCode[31:21] == 11'b10101011000 ||
+			   REGDECOPCode[31:21] == 11'b11111000010 ||
+			   REGDECOPCode[31:21] == 11'b00111000010 ||
+			   REGDECOPCode[31:21] == 11'b11111000000 ||
+			   REGDECOPCode[31:21] == 11'b00111000000 ||
+			   REGDECOPCode[31:21] == 11'b11101011000) begin //ADDI, ADDS, LDUR, LDURB, STUR, STURB, SUBS
+				if(EXOPWriteReg[4:0] == Rn[4:0]) begin //EX Rd matches REG Rn
+					if(EXRegWrite) begin //EX is writing
+						ForwardMuxControlA[1:0] = 2'b01;
 					end
-					11'b1001000100z: begin //ADDI
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					11'b10101011000: begin //ADDS
-						if(REGDECOPCode[20:16] != 5'b11111) begin
-							if(REGDECOPCode[20:16] == EXOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[20:16] == MEMOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					11'b11111000010: begin //LDUR
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					11'b00111000010: begin //LDURB
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin //Rn of REGDEC matches Rd of EX
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if(REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					11'b11111000000: begin //STUR
-						if(REGDECOPCode[4:0] != 5'b11111) begin
-							if(REGDECOPCode[4:0] == EXOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[4:0] == MEMOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					11'b00111000000: begin //STURB
-						if(REGDECOPCode[4:0] != 5'b11111) begin
-							if(REGDECOPCode[4:0] == EXOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[4:0] == MEMOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					11'b11101011000: begin //SUBS
-						if(REGDECOPCode[20:16] != 5'b11111) begin
-							if(REGDECOPCode[20:16] == EXOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[20:16] == MEMOPCode[4:0]) begin
-								ForwardMuxControlB[1:0] = 2'b10;
-							end
-						end
-						if(REGDECOPCode[9:5] != 5'b11111) begin
-							if(REGDECOPCode[9:5] == EXOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b01;
-							end 
-							else if (REGDECOPCode[9:5] == MEMOPCode[4:0]) begin
-								ForwardMuxControlA[1:0] = 2'b10;
-							end
-						end
-					end
-					default: begin //Instruction where you don't read from a register
+					else begin //EX is not writing
 						ForwardMuxControlA[1:0] = 2'b00;
-						ForwardMuxControlB[1:0] = 2'b00;
-					end 
-				endcase
+					end
+				end 
+				else if (MEMOPWriteReg[4:0] == Rn[4:0]) begin //MEM Rd matches REG Rn
+					if(MEMRegWrite) begin//MEM is writing
+						ForwardMuxControlA[1:0] = 2'b10;
+					end
+					else begin //MEM is not writing
+						ForwardMuxControlA[1:0] = 2'b00;
+					end
+				end 
+				else begin //Neither matches
+					ForwardMuxControlA[1:0] = 2'b00;
+				end
 			end
-			default: begin //Neither stage has a write enable
+			else begin //Not an instruction where we read Rn
 				ForwardMuxControlA[1:0] = 2'b00;
+			end
+		end 
+		else begin
+			ForwardMuxControlA[1:0] = 2'b00;
+		end 
+	end
+		
+	//logic for ForwardMuxControlB
+	always_comb begin
+		if(RdOrRm[4:0] != 5'b11111) begin
+			if(REGDECOPCode[31:21] == 11'b10101011000 ||
+			   REGDECOPCode[31:24] == 8'b10110100 ||
+			   REGDECOPCode[31:21] == 11'b11111000000 ||
+			   REGDECOPCode[31:21] == 11'b00111000000 ||
+			   REGDECOPCode[31:21] == 11'b11101011000 ||
+			   REGDECOPCode[31:23] == 9'b111100101 ||
+			   REGDECOPCode[31:23] == 9'b110100101) begin //ADDS, CBZ, STUR, STURB, SUBS, MOVK, MOVZ
+				if(EXOPWriteReg[4:0] == RdOrRm[4:0]) begin //EX Rd matches REG Rn
+					if(EXRegWrite) begin //EX is writing
+						ForwardMuxControlB[1:0] = 2'b01;
+					end
+					else begin //EX is not writing
+						ForwardMuxControlB[1:0] = 2'b00;
+					end
+				end 
+				else if (MEMOPWriteReg[4:0] == RdOrRm[4:0]) begin //MEM Rd matches REG Rn
+					if(MEMRegWrite) begin//MEM is writing
+						ForwardMuxControlB[1:0] = 2'b10;
+					end
+					else begin //MEM is not writing
+						ForwardMuxControlB[1:0] = 2'b00;
+					end
+				end 
+				else begin //Neither matches
+					ForwardMuxControlB[1:0] = 2'b00;
+				end
+			end
+			else begin //Not an instruction where we read Rn
 				ForwardMuxControlB[1:0] = 2'b00;
 			end
-		endcase
+		end 
+		else begin
+			ForwardMuxControlB[1:0] = 2'b00;
+		end
 	end
-end
+endmodule
 
+module forwardingUnit_testbench();
+	logic [1:0] ForwardMuxControlB, ForwardMuxControlA;
+	logic [31:0] REGDECOPCode;
+	logic [4:0] MEMOPWriteReg, EXOPWriteReg, RdOrRm, Rn;
+	logic EXRegWrite, MEMRegWrite;
+
+	forwardingUnit dut (.ForwardMuxControlA, .ForwardMuxControlB, .REGDECOPCode, .EXOPWriteReg, .MEMOPWriteReg, .RdOrRm, .Rn, .EXRegWrite, .MEMRegWrite);
+
+	initial begin
+		REGDECOPCode[31:21] = 11'b11101011000; //SUBS
+		Rn[4:0] = 5'b11111;
+		RdOrRm[4:0] = 5'b11111;
+		EXOPWriteReg[4:0] = 5'b11111;
+		MEMOPWriteReg[4:0] = 5'b00000;
+		EXRegWrite = 1'b1;
+		MEMRegWrite = 1'b1;
+		$display("no forwarding %d", $time);
+		#200;
+		Rn[4:0] = 5'b00001;
+		RdOrRm[4:0] = 5'b00001;
+		$display("no forwarding %d", $time);
+		#200;
+		EXOPWriteReg[4:0] = 5'b00001;
+		$display("forwarding from EX at %d", $time);
+		#200;
+		EXOPWriteReg[4:0] = 5'b01000;
+		MEMOPWriteReg[4:0] = 5'b00001;
+		$display("forwarding from MEM at %d", $time);
+		#200;
+		EXRegWrite = 1'b0;
+		$display("forwarding from MEM %d", $time);
+		#200;
+		MEMOPWriteReg[4:0] = 5'b01000;
+		$display("no forwarding at %d", $time);
+		#200;
+		EXRegWrite = 1'b1;
+		MEMRegWrite = 1'b0;
+		EXOPWriteReg[4:0] = 5'b00010;
+		$display("no forwarding at %d", $time);
+		#200;
+		EXOPWriteReg[4:0] = 5'b00001;
+		$display("forwarding from EX %d", $time);
+		#200;
+	end
+endmodule

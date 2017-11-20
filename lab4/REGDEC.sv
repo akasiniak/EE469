@@ -4,7 +4,7 @@
 
 module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, xfer_size, RegWrite, NOOP, ALUA, ALUB,
 				OPCode, Db, zero, ALUSrc, Reg2Loc, OPCodeIn, ExForward, MemForward, WritetoReg, ForwardMuxA, ForwardMuxB, clk, reset,
-				MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, ALUCntrlIn, xfer_sizeIn, read_enableIn, NOOPIn, Rd);
+				MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, ALUCntrlIn, xfer_sizeIn, read_enableIn, NOOPIn, Rd, RegWriteFromMem);
 	parameter DELAY = 0.05;
 	output logic [63:0] ALUA, ALUB, Db;
 	output logic [31:0] OPCode;
@@ -16,7 +16,7 @@ module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, xfer
 	input logic [1:0] ALUSrc;
 	input logic Reg2Loc, clk, reset;
 	input logic [1:0] ForwardMuxB, ForwardMuxA;
-	input logic MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn, NOOPIn;
+	input logic MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn, NOOPIn, RegWriteFromMem;
 	input logic [2:0] ALUCntrlIn;
 	input logic [3:0] xfer_sizeIn;
 	input logic [4:0] Rd;
@@ -29,10 +29,10 @@ module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, xfer
 					   .ReadData2(DbFromReg), 
 					   .WriteData(WritetoReg), 
 					   .WriteRegister(Rd),
-					   .RegWrite(RegWriteIn), 
+					   .RegWrite(RegWriteFromMem), 
 					   .ReadRegister1(OPCodeIn[9:5]), 
 					   .ReadRegister2(Reg2LocMuxOut) , 
-					   .clk);
+					   .clk(~clk));
 
 	nor64to1 #DELAY zeroGate (.out(zero), .Din(ForwardMuxBOut)); //zero flag will now come from here
 	signExtend #(.WIDTH(9)) Daddr9(.out(AddrSE), .in(OPCodeIn[20:12]));

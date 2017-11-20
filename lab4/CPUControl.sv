@@ -175,7 +175,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 			end
 			11'b111100101zz: begin //MOVK
 				Reg2Loc = 1'b0;
-				ALUSrc = 2'bzz;
+				ALUSrc = 2'b00;
 				MemtoReg = 1'bz;
 				RegWrite = 1'b1;
 				MemWrite = 1'b0;
@@ -191,7 +191,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 			end
 			11'b110100101zz: begin //MOVZ
 				Reg2Loc = 1'b0;
-				ALUSrc = 2'bzz;
+				ALUSrc = 2'b00;
 				MemtoReg = 1'bz;
 				RegWrite = 1'b1;
 				MemWrite = 1'b0;
@@ -209,9 +209,9 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				Reg2Loc = 1'b0;
 				ALUSrc = 2'bzz;
 				MemtoReg = 1'bz;
-				RegWrite = 1'bz;
-				MemWrite = 1'bz;
-				BrTaken = 1'bz;
+				RegWrite = 1'b0;
+				MemWrite = 1'b0;
+				BrTaken = 1'b0;
 				UncondBr = 1'bz;
 				read_enable = 1'b0;
 				LDURB = 1'bz;
