@@ -17,7 +17,7 @@ endmodule
 module SingleCycleCPU_testbench;
 	logic clk, reset;
 	SingleCycleCPU dut(.clk, .reset);
-	parameter ClockDelay = 2000;
+	parameter ClockDelay = 500;
 	integer i;
 	initial begin // Set up the clock
 		clk <= 0;

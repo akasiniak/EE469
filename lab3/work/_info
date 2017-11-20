@@ -10,7 +10,7 @@ cModel Technology
 Z0 dC:/Users/Alexander Kasiniak/Desktop/EE469/lab3
 vadder64Bit
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1510616011
+Z2 !s110 1510617692
 !i10b 1
 !s100 MQdW5Wi4CfJaMBjWToHD62
 IJ3=P5CFkSD4^TbAe5gomQ1
@@ -26,7 +26,7 @@ Z9 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z10 !s108 1510616011.000000
+Z10 !s108 1510617692.000000
 Z11 !s107 ./adder64Bit.sv|
 Z12 !s90 -reportprogress|300|./adder64Bit.sv|
 !i113 1
@@ -58,7 +58,7 @@ R13
 nadder64@bit_testbench
 valu
 R1
-Z15 !s110 1510616012
+Z15 !s110 1510617693
 !i10b 1
 !s100 l][Vm`2oPcPS^3^HdjFYT0
 I908`_2abUcR^S7HA4D[RG3
@@ -74,7 +74,7 @@ R9
 r1
 !s85 0
 31
-Z19 !s108 1510616012.000000
+Z19 !s108 1510617693.000000
 Z20 !s107 ./alu.sv|
 Z21 !s90 -reportprogress|300|./alu.sv|
 !i113 1
@@ -546,7 +546,7 @@ R81
 R13
 vinstructionGet
 R1
-R2
+R15
 !i10b 1
 !s100 hK<^`;B3JDXSSLa6W7oCQ0
 I5VWUaMnLhGbl1Hi7f49ZQ1
@@ -562,7 +562,7 @@ R9
 r1
 !s85 0
 31
-R10
+R19
 Z85 !s107 ./instructionGet.sv|
 Z86 !s90 -reportprogress|300|./instructionGet.sv|
 !i113 1
@@ -570,7 +570,7 @@ R13
 ninstruction@get
 vinstructionGet_testbench
 R1
-R2
+R15
 !i10b 1
 !s100 eXHK>5GGUhNV>]0l7P88l2
 IXK4X?5JdWUKQiKgJc1MzT1
@@ -586,7 +586,7 @@ R9
 r1
 !s85 0
 31
-R10
+R19
 R85
 R86
 !i113 1
@@ -1514,17 +1514,17 @@ R3
 Z192 !s105 SingleCycleCPU_sv_unit
 S1
 R5
-R66
-Z193 8./SingleCycleCPU.sv
-Z194 F./SingleCycleCPU.sv
+Z193 w1510617685
+Z194 8./SingleCycleCPU.sv
+Z195 F./SingleCycleCPU.sv
 L0 2
 R9
 r1
 !s85 0
 31
 R19
-Z195 !s107 ./SingleCycleCPU.sv|
-Z196 !s90 -reportprogress|300|./SingleCycleCPU.sv|
+Z196 !s107 ./SingleCycleCPU.sv|
+Z197 !s90 -reportprogress|300|./SingleCycleCPU.sv|
 !i113 1
 R13
 n@single@cycle@c@p@u
@@ -1532,71 +1532,71 @@ vSingleCycleCPU_testbench
 R1
 R15
 !i10b 1
-!s100 <g@BhhlhFU^6JbTO:V7nZ1
-IojSoIO2D`YF<f6dR49Pc;2
+!s100 J14bN:cS8dNYTHECPTQjX3
+IX>W^mkF<GfJ2MBOm8A^jN0
 R3
 R192
 S1
 R5
-R66
 R193
 R194
+R195
 R58
 R9
 r1
 !s85 0
 31
 R19
-R195
 R196
+R197
 !i113 1
 R13
 n@single@cycle@c@p@u_testbench
 vzeroPad
 R1
-Z197 !s110 1509581404
+Z198 !s110 1509581404
 !i10b 1
 !s100 `GCI:hA_d5=R[HF_Ii<Dg1
 I3a3RMLL<kn4A3nTk?=nfA0
 R3
-Z198 !s105 zeroPad_sv_unit
+Z199 !s105 zeroPad_sv_unit
 S1
 R5
-Z199 w1509581401
-Z200 8./zeroPad.sv
-Z201 F./zeroPad.sv
+Z200 w1509581401
+Z201 8./zeroPad.sv
+Z202 F./zeroPad.sv
 L0 1
 R9
 r1
 !s85 0
 31
-Z202 !s108 1509581404.000000
-Z203 !s107 ./zeroPad.sv|
-Z204 !s90 -reportprogress|300|./zeroPad.sv|
+Z203 !s108 1509581404.000000
+Z204 !s107 ./zeroPad.sv|
+Z205 !s90 -reportprogress|300|./zeroPad.sv|
 !i113 1
 R13
 nzero@pad
 vzeroPad_testbench
 R1
-R197
+R198
 !i10b 1
 !s100 Kon8GbKZ38BR?J31S7A4]2
 IYL6DQH:8oMh9W<[fePMFM1
 R3
-R198
+R199
 S1
 R5
-R199
 R200
 R201
+R202
 R52
 R9
 r1
 !s85 0
 31
-R202
 R203
 R204
+R205
 !i113 1
 R13
 nzero@pad_testbench
