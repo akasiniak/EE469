@@ -7,7 +7,7 @@ module PipelinedProcessor (clk, reset);
 	logic[3:0] Cntrlxfer_size;
 	logic[1:0] CntrlALUSrc;
 	logic[2:0] CntrlALUCntrl;
-	logic[63:0] ALUInputA, ALUInputB, OutofForwardMuxA, OutofForwardMuxB, DbFromRegFile;
+	logic[63:0] ALUInputA, ALUInputB, DbFromRegFile;
 	
 	logic EXMem2Reg, EXRegWrite, EXMemWrite, EXLDURB, EXread_enable, EXMOVZ, EXMOVK, EXNOOP;
 	logic[3:0] EXxfer_size;
@@ -49,7 +49,7 @@ module PipelinedProcessor (clk, reset);
 						   .OPCode(IFETCHOPCode), .zero(Cntrlzero), .negative(Cntrlnegative), .overflow(Cntrloverflow), .NOOP(CntrlNOOP));
 	
 	forwardingUnit forwarding (.ForwardMuxControlA, .ForwardMuxControlB, .REGDECOPCode(IFETCHOPCode), .EXOPWriteReg(EXOPCode[4:0]), 
-							   .MEMOPWriteReg(MEMOPCode[4:0]), .RdOrRm(registers.Reg2LocMuxOut), .Rn(IFETCHOPCode[9:5]), .EXRegWrite(CntrlRegWrite), .MEMRegWrite);
+							   .MEMOPWriteReg(MEMOPCode[4:0]), .RdOrRm(registers.Reg2LocMuxOut), .Rn(IFETCHOPCode[9:5]), .EXRegWrite(EXRegWrite), .MEMRegWrite);
 endmodule
 
 module PipelinedProcessor_testbench();

@@ -20,7 +20,7 @@ module regfile (ReadData1, ReadData2, WriteData, WriteRegister, RegWrite, ReadRe
 	generate
 		for(i = 0; i < 31; i++) begin: eachReg
 			register ourRegisters (.dataOut(registerWires[i][63:0]), .dataIn(WriteData[63:0]), 
-											.enable(decoderOutput[i]), .clk(~clk), .reset(1'b0));
+											.enable(decoderOutput[i]), .clk(clk), .reset(1'b0));
 		end
 	endgenerate
 	register zeroReg (.dataOut(registerWires[31][63:0]), .dataIn(64'b0), .enable(1'b1), .clk(~clk), .reset(1'b0));

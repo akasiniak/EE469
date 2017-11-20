@@ -42,17 +42,17 @@ module REGDEC (ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, read_enable, xfer
 			mux2to1 Reg2Mux(.out(Reg2LocMuxOut[i]), .in({OPCodeIn[i+16], OPCodeIn[i]}), .select(Reg2Loc)); // Rm and Rd
 		end
 		for(i = 0; i < 64; i++) begin: eachMux
-			mux4to1 ALUSrcMux(.out(ALUSrcMuxOut[i]), .select(ALUSrc), .muxIn({1'bz, ImmSE[i], AddrSE[i], DbFromReg[i]})); //pick what goes into forwarding mux
+			mux4to1 ALUSrcMux(.out(ALUSrcMuxOut[i]), .select(ALUSrc), .muxIn({1'bz, ImmSE[i], AddrSE[i], ForwardMuxBOut[i]})); //pick what goes into forwarding mux
 			mux4to1 AForwardMuxs (.out(ForwardMuxAOut[i]), .select(ForwardMuxA), .muxIn({1'bz, MemForward[i], ExForward[i], Da[i]}));
-			mux4to1 BForwardMuxs (.out(ForwardMuxBOut[i]), .select(ForwardMuxB), .muxIn({1'bz, MemForward[i], ExForward[i], ALUSrcMuxOut[i]}));
+			mux4to1 BForwardMuxs (.out(ForwardMuxBOut[i]), .select(ForwardMuxB), .muxIn({1'bz, MemForward[i], ExForward[i], DbFromReg[i]}));
 		end
 	endgenerate
 	
 	//set up register that will pass values to the next stage
-	register #(.WIDTH(64)) ALUBReg (.dataOut(ALUB), .dataIn(ForwardMuxBOut), .enable(1'b1), .clk, .reset); //send ALUB
+	register #(.WIDTH(64)) ALUBReg (.dataOut(ALUB), .dataIn(ALUSrcMuxOut), .enable(1'b1), .clk, .reset); //send ALUB
 	register #(.WIDTH(64)) ALUAReg (.dataOut(ALUA), .dataIn(ForwardMuxAOut), .enable(1'b1), .clk, .reset); //send ALUA
 	register #(.WIDTH(32)) OPCodeReg (.dataOut(OPCode), .dataIn(OPCodeIn), .enable(1'b1), .clk, .reset); //send OPCode
-	register #(.WIDTH(64)) DbReg (.dataOut(Db), .dataIn(DbFromReg), .enable(1'b1), .clk, .reset); //send Db for writing to memory
+	register #(.WIDTH(64)) DbReg (.dataOut(Db), .dataIn(ForwardMuxBOut), .enable(1'b1), .clk, .reset); //send Db for writing to memory
 	register #(.WIDTH(15)) ControlReg (.dataOut({ALUCntrl, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, xfer_size, NOOP}), 
 									.dataIn({ALUCntrlIn, MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn, xfer_sizeIn, NOOPIn}), 
 									.enable(1'b1), 

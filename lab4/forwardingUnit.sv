@@ -18,19 +18,13 @@ module forwardingUnit (ForwardMuxControlA, ForwardMuxControlB, REGDECOPCode, EXO
 					if(EXRegWrite) begin //EX is writing
 						ForwardMuxControlA[1:0] = 2'b01;
 					end
-					else begin //EX is not writing
-						ForwardMuxControlA[1:0] = 2'b00;
-					end
 				end 
-				else if (MEMOPWriteReg[4:0] == Rn[4:0]) begin //MEM Rd matches REG Rn
+				if (MEMOPWriteReg[4:0] == Rn[4:0] && (EXOPWriteReg[4:0] != Rn[4:0] || EXRegWrite == 0)) begin //MEM Rd matches REG Rn
 					if(MEMRegWrite) begin//MEM is writing
 						ForwardMuxControlA[1:0] = 2'b10;
 					end
-					else begin //MEM is not writing
-						ForwardMuxControlA[1:0] = 2'b00;
-					end
 				end 
-				else begin //Neither matches
+				if((MEMOPWriteReg[4:0] != Rn[4:0] || MEMRegWrite == 0) && (EXOPWriteReg[4:0] != Rn[4:0] || EXRegWrite == 0)) begin //Neither matches
 					ForwardMuxControlA[1:0] = 2'b00;
 				end
 			end
@@ -57,19 +51,13 @@ module forwardingUnit (ForwardMuxControlA, ForwardMuxControlB, REGDECOPCode, EXO
 					if(EXRegWrite) begin //EX is writing
 						ForwardMuxControlB[1:0] = 2'b01;
 					end
-					else begin //EX is not writing
-						ForwardMuxControlB[1:0] = 2'b00;
-					end
 				end 
-				else if (MEMOPWriteReg[4:0] == RdOrRm[4:0]) begin //MEM Rd matches REG Rn
+				if (MEMOPWriteReg[4:0] == RdOrRm[4:0] && (EXOPWriteReg[4:0] != RdOrRm[4:0] || EXRegWrite == 0)) begin //MEM Rd matches REG Rn
 					if(MEMRegWrite) begin//MEM is writing
 						ForwardMuxControlB[1:0] = 2'b10;
 					end
-					else begin //MEM is not writing
-						ForwardMuxControlB[1:0] = 2'b00;
-					end
 				end 
-				else begin //Neither matches
+				if((MEMOPWriteReg[4:0] != RdOrRm[4:0] || MEMRegWrite == 0) && (EXOPWriteReg[4:0] != RdOrRm[4:0] || EXRegWrite == 0)) begin //Neither matches
 					ForwardMuxControlB[1:0] = 2'b00;
 				end
 			end
