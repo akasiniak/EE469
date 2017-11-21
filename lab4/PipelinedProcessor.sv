@@ -13,7 +13,7 @@ module PipelinedProcessor (clk, reset);
 	logic[3:0] EXxfer_size;
 	logic[1:0] EXALUSrc;
 	logic[2:0] EXALUCntrl;
-	logic[63:0] ALUOut, DbFromEX;
+	logic[63:0] EXOut, DbFromEX;
 
 	logic[4:0] RdFromMem;
 	logic[63:0] DwFromMem, MEMForwardData;
@@ -28,18 +28,18 @@ module PipelinedProcessor (clk, reset);
 	REGDEC registers (.ALUCntrl(EXALUCntrl), .MemWrite(EXMemWrite), .MOVZ(EXMOVZ), .MOVK(EXMOVK), .LDURB(EXLDURB), .Mem2Reg(EXMem2Reg), 
 					  .read_enable(EXread_enable), .xfer_size(EXxfer_size), .RegWrite(EXRegWrite), .NOOP(EXNOOP), .ALUA(ALUInputA), .ALUB(ALUInputB),
 		   			  .OPCode(EXOPCode), .Db(DbFromRegFile), .zero(Cntrlzero), .ALUSrc(CntrlALUSrc), .Reg2Loc(CntrlReg2Loc), .OPCodeIn(IFETCHOPCode), 
-		   			  .ExForward(execution.resultToNextStage), .MemForward(MEMForwardData), .WritetoReg(DwFromMem), .ForwardMuxA(ForwardMuxControlA), 
+		   			  .ExForward(execution.MOVMuxOut), .MemForward(MEMForwardData), .WritetoReg(DwFromMem), .ForwardMuxA(ForwardMuxControlA), 
 		   			  .ForwardMuxB(ForwardMuxControlB), .clk, .reset, .MemWriteIn(CntrlMemWrite), .MOVZIn(CntrlMOVZ), .MOVKIn(CntrlMOVK), .LDURBIn(CntrlLDURB), 
 		   			  .Mem2RegIn(CntrlMem2Reg), .RegWriteIn(CntrlRegWrite), .ALUCntrlIn(CntrlALUCntrl), .xfer_sizeIn(Cntrlxfer_size), .read_enableIn(Cntrlread_enable), 
 		   			  .NOOPIn(CntrlNOOP), .Rd(RdFromMem), .RegWriteFromMem(REGDECRegWrite));
 	
-	EX execution (.ALUOut, .Db(DbFromEX), .OPCode(MEMOPCode), .MemWrite(MEMMemWrite), .MOVZ(MEMMOVZ), .MOVK(MEMMOVK), .LDURB(MEMLDURB), .Mem2Reg(MEMMem2Reg), 
+	EX execution (.EXOut, .Db(DbFromEX), .OPCode(MEMOPCode), .MemWrite(MEMMemWrite), .MOVZ(MEMMOVZ), .MOVK(MEMMOVK), .LDURB(MEMLDURB), .Mem2Reg(MEMMem2Reg), 
 				  .RegWrite(MEMRegWrite), .read_enable(MEMread_enable), .xfer_size(MEMxfer_size), .negative(Cntrlnegative), .overflow(Cntrloverflow),
 	   			  .clk, .reset, .ALUCntrlIn(EXALUCntrl), .MemWriteIn(EXMemWrite), .MOVZIn(EXMOVZ), .MOVKIn(EXMOVK), .LDURBIn(EXLDURB), 
 	   			  .Mem2RegIn(EXMem2Reg), .RegWriteIn(EXRegWrite), .read_enableIn(EXread_enable), .xfer_sizeIn(EXxfer_size), .NOOPIn(EXNOOP), .ALUA(ALUInputA), 
 	   			  .ALUB(ALUInputB), .DbIn(DbFromRegFile), .OPCodeIn(EXOPCode));
 	
-	MEM memory (.Dw(DwFromMem), .MemForward(MEMForwardData), .RegWrite(REGDECRegWrite), .Rd(RdFromMem), .OPCodeIn(MEMOPCode), .ALUOut, .DbIn(DbFromEX), .MemWriteIn(MEMMemWrite), 
+	MEM memory (.Dw(DwFromMem), .MemForward(MEMForwardData), .RegWrite(REGDECRegWrite), .Rd(RdFromMem), .OPCodeIn(MEMOPCode), .EXOut, .DbIn(DbFromEX), .MemWriteIn(MEMMemWrite), 
 			    .MOVZIn(MEMMOVZ), .MOVKIn(MEMMOVK), .LDURBIn(MEMLDURB), .Mem2RegIn(MEMMem2Reg), .RegWriteIn(MEMRegWrite), .read_enableIn(MEMread_enable), 
 				.xfer_sizeIn(MEMxfer_size), .clk, .reset);
 
@@ -69,7 +69,7 @@ module PipelinedProcessor_testbench();
 		while(dut.MEMOPCode[31:0] != 32'b00010100000000000000000000000000) begin
 			@(posedge clk);
 		end
-		$diplay("end reached at: %d", $time * 1000);
+		$display("end reached at: %d", $time * 1000);
 		@(posedge clk);
 		@(posedge clk);
 		$stop;

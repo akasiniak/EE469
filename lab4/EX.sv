@@ -1,8 +1,9 @@
 `timescale 1ns/10ps
-module EX (ALUOut, Db, OPCode, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, xfer_size, negative, overflow,
+module EX (EXOut, Db, OPCode, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, xfer_size, negative, overflow,
 		   clk, reset, ALUCntrlIn, MemWriteIn, MOVZIn, MOVKIn, LDURBIn, Mem2RegIn, RegWriteIn, read_enableIn,
 		   xfer_sizeIn, NOOPIn, ALUA, ALUB, DbIn, OPCodeIn);
-	output logic [63:0] ALUOut, Db;
+	parameter DELAY = 0.05;
+	output logic [63:0] EXOut, Db;
 	output logic [31:0] OPCode;
 	output logic MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, negative, overflow;
 	output logic [3:0] xfer_size;
@@ -12,17 +13,38 @@ module EX (ALUOut, Db, OPCode, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, r
 	input logic [63:0] ALUA, ALUB, DbIn;
 	input logic [31:0] OPCodeIn;
 
-	logic negativeFromALU, overflowFromALU, zeroFromALU, carryOutFromALU, carryOutFromFlag, zeroFromFlag, overFlowFromFlag, negativeFromFlag;
-	logic [63:0] resultToNextStage;
+	logic negativeFromALU, overflowFromALU, zeroFromALU, carryOutFromALU, carryOutFromFlag, zeroFromFlag, overFlowFromFlag, negativeFromFlag, MOVOROut;
+	logic [63:0] resultToNextStage, MOVResult, MOVMuxOut, ALUOut;
 
-	alu ahloo (.A(ALUA), .B(ALUB), .cntrl(ALUCntrlIn), .result(resultToNextStage), .negative(negativeFromALU), .zero(zeroFromALU), 
+	alu ahloo (.A(ALUA), .B(ALUB), .cntrl(ALUCntrlIn), .result(ALUOut), .negative(negativeFromALU), .zero(zeroFromALU), 
 				.overflow(overflowFromALU), .carry_out(carryOutFromALU));
+
 	flags flagRegister (.in({negativeFromALU, zeroFromALU, overflowFromALU, carryOutFromALU}),
 						.out({negativeFromFlag, zeroFromFlag, overFlowFromFlag, carryOutFromFlag}), .clk, .reset, .enable(~NOOPIn));
+	
+	// MOV Unit
+	MOVUNIT MOVCommand (
+			.result(MOVResult), 
+			.IMM16(OPCodeIn[20:5]), 
+			.Rd(DbIn), 
+			.MOVZ(MOVZIn), 
+			.SHAMT(OPCodeIn[22:21]));
+
+	// OR gate for MOVZ and MOVK signal
+	or #DELAY movOR(MOVOROut, MOVZIn, MOVKIn);
+
 	assign negative = flagRegister.eachFF[3].flipFlop.intoTheDFF;
 	assign overflow = flagRegister.eachFF[1].flipFlop.intoTheDFF;
 
-	register #(.WIDTH(64)) ALUOutReg (.dataOut(ALUOut), .dataIn(resultToNextStage), .enable(1'b1), .clk, .reset); //send ALU result
+
+	genvar i;
+	generate
+		for(i = 0; i < 64; i++) begin: eachMux
+			mux2to1 MOVMux(.out(MOVMuxOut[i]), .in({MOVResult[i], ALUOut[i]}), .select(MOVOROut));
+		end
+	endgenerate
+
+	register #(.WIDTH(64)) MOVMuxReg (.dataOut(EXOut), .dataIn(MOVMuxOut), .enable(1'b1), .clk, .reset); //send EX result
 	register #(.WIDTH(64)) DbReg (.dataOut(Db), .dataIn(DbIn), .enable(1'b1), .clk, .reset); //send Db
 	register #(.WIDTH(32)) OPCodeReg (.dataOut(OPCode), .dataIn(OPCodeIn), .enable(1'b1), .clk, .reset); //send OPCode
 	register #(.WIDTH(11)) ControlReg (.dataOut({MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, xfer_size}),
@@ -31,7 +53,7 @@ module EX (ALUOut, Db, OPCode, MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, r
 endmodule
 
 module EX_testbench();
-	logic [63:0] ALUOut, Db;
+	logic [63:0] EXOut, Db;
 	logic [31:0] OPCode;
 	logic MemWrite, MOVZ, MOVK, LDURB, Mem2Reg, RegWrite, read_enable, negative, overflow;
 	logic [3:0] xfer_size;
@@ -41,7 +63,7 @@ module EX_testbench();
 	logic [63:0] ALUA, ALUB, DbIn;
 	logic [31:0] OPCodeIn;
 
-	EX dut (.ALUOut, .Db, .OPCode, .MemWrite, .MOVZ, .MOVK, .LDURB, .Mem2Reg, .RegWrite, .read_enable, .xfer_size, .negative, .overflow,
+	EX dut (.EXOut, .Db, .OPCode, .MemWrite, .MOVZ, .MOVK, .LDURB, .Mem2Reg, .RegWrite, .read_enable, .xfer_size, .negative, .overflow,
 		   .clk, .reset, .ALUCntrlIn, .MemWriteIn, .MOVZIn, .MOVKIn, .LDURBIn, .Mem2RegIn, .RegWriteIn, .read_enableIn,
 		   .xfer_sizeIn, .NOOPIn, .ALUA, .ALUB, .DbIn, .OPCodeIn);
 	parameter CLOCK_PERIOD=200;

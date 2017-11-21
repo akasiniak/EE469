@@ -2,6 +2,60 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /PipelinedProcessor_testbench/dut/clk
 add wave -noupdate /PipelinedProcessor_testbench/dut/reset
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[133]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[132]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[131]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[130]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[129]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[128]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[127]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[126]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[125]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[124]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[123]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[122]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[121]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[120]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[119]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[118]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[117]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[116]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[115]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[114]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[113]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[112]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[111]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[110]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[109]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[108]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[107]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[106]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[105]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[104]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[103]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[102]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[101]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[100]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[99]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[98]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[97]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[96]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[95]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[94]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[93]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[92]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[91]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[90]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[89]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[88]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[87]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[86]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[85]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[84]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[83]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[82]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[81]}
+add wave -noupdate -radix ascii {/PipelinedProcessor_testbench/dut/memory/memory/mem[80]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[72]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[64]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[56]}
@@ -10,7 +64,21 @@ add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memo
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[32]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[24]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[16]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[15]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[14]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[13]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[12]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[11]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[10]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[9]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[8]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[7]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[6]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[5]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[4]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[3]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[2]}
+add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[1]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/memory/memory/mem[0]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[31]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[30]}
@@ -41,9 +109,9 @@ add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/r
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[5]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[4]}
 add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[3]}
-add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[2]}
-add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[1]}
-add wave -noupdate -radix decimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[0]}
+add wave -noupdate -radix hexadecimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[2]}
+add wave -noupdate -radix hexadecimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[1]}
+add wave -noupdate -radix hexadecimal {/PipelinedProcessor_testbench/dut/registers/registers/registerWires[0]}
 add wave -noupdate /PipelinedProcessor_testbench/dut/IFETCHOPCode
 add wave -noupdate /PipelinedProcessor_testbench/dut/EXOPCode
 add wave -noupdate /PipelinedProcessor_testbench/dut/MEMOPCode
@@ -83,12 +151,12 @@ add wave -noupdate /PipelinedProcessor_testbench/dut/memory/memory/write_enable
 add wave -noupdate /PipelinedProcessor_testbench/dut/execution/DbIn
 add wave -noupdate /PipelinedProcessor_testbench/dut/execution/Db
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1478800 ps} 0}
+WaveRestoreCursors {{Cursor 1} {520461390 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 423
-configure wave -valuecolwidth 334
+configure wave -namecolwidth 163
+configure wave -valuecolwidth 182
 configure wave -justifyvalue left
-configure wave -signalnamewidth 0
+configure wave -signalnamewidth 1
 configure wave -snapdistance 10
 configure wave -datasetprefix 0
 configure wave -rowmargin 4
@@ -99,4 +167,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {7528436 ps}
+WaveRestoreZoom {505953149 ps} {522055098 ps}

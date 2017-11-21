@@ -128,7 +128,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 			11'b11111000000: begin //STUR
 				Reg2Loc = 1'b0;
 				ALUSrc = 2'b01;
-				MemtoReg = 1'bz;
+				MemtoReg = 1'b0;
 				RegWrite = 1'b0;
 				MemWrite = 1'b1;
 				BrTaken = 1'b0;
@@ -136,15 +136,15 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				read_enable = 1'b0;
 				LDURB = 1'bz;
 				xfer_size = 4'b1000;
-				MOVZ = 1'bz;
-				MOVK = 1'bz;
+				MOVZ = 1'b0;
+				MOVK = 1'b0;
 				ALUCntrl = 3'b010;
 				NOOP = 1'b1;
 			end
 			11'b00111000000: begin //STURB
 				Reg2Loc = 1'b0;
 				ALUSrc = 2'b01;
-				MemtoReg = 1'bz;
+				MemtoReg = 1'b0;
 				RegWrite = 1'b0;
 				MemWrite = 1'b1;
 				BrTaken = 1'b0;
@@ -152,8 +152,8 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 				read_enable = 1'b0;
 				LDURB = 1'bz;
 				xfer_size = 4'b0001;
-				MOVZ = 1'bz;
-				MOVK = 1'bz;
+				MOVZ = 1'b0;
+				MOVK = 1'b0;
 				ALUCntrl = 3'b010;
 				NOOP = 1'b1;
 			end
@@ -176,7 +176,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 			11'b111100101zz: begin //MOVK
 				Reg2Loc = 1'b0;
 				ALUSrc = 2'b00;
-				MemtoReg = 1'bz;
+				MemtoReg = 1'b0;
 				RegWrite = 1'b1;
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
@@ -192,7 +192,7 @@ module CPUControl (Reg2Loc, ALUSrc, MemtoReg, RegWrite, MemWrite, BrTaken, Uncon
 			11'b110100101zz: begin //MOVZ
 				Reg2Loc = 1'b0;
 				ALUSrc = 2'b00;
-				MemtoReg = 1'bz;
+				MemtoReg = 1'b0;
 				RegWrite = 1'b1;
 				MemWrite = 1'b0;
 				BrTaken = 1'b0;
