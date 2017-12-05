@@ -25,7 +25,7 @@
 // Line to set up the timing of simulation: says units to use are ns, and smallest resolution is 10ps.
 `timescale 1ns/10ps
 
-module lab5 #(parameter [22:0] MODEL_NUMBER = 22'd1421680, parameter DMEM_ADDRESS_WIDTH = 20) (
+module lab5 #(parameter [22:0] MODEL_NUMBER = 22'd1433321, parameter DMEM_ADDRESS_WIDTH = 20) (
 	// Commands:
 	//   (Comes from processor).
 	input		logic [DMEM_ADDRESS_WIDTH-1:0]	address,			// The byte address.  Must be word-aligned if byte_access != 1.
@@ -51,7 +51,7 @@ endmodule
 // Test the data memory, and figure out the settings.
 
 module lab5_testbench ();
-	localparam USERID = 22'd1421680;  // Set to your student ID #
+	localparam USERID = 22'd1433321;  // Set to your student ID #
 	localparam ADDRESS_WIDTH = 20;
 	localparam DATA_WIDTH = 8;
 	
@@ -243,9 +243,9 @@ module lab5_testbench ();
 	initial begin
 		dummy_data <= '0;
 		resetMem();				// Initialize the memory.
-		for(j = 2; j <= 32; j++) begin
-			resetMem();		
-		$display("for %d address accesses:", j);
+		for(j = 0; j <= 32; j++) begin
+		resetMem();		
+		$display("for %d address accesses:", j + 1);
 			for(i = 0; i <= j; i++) begin
 				addr = i*8; // *8 to doubleword-align the access.
 				readMem(addr, dummy_data, delay);

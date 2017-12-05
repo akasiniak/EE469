@@ -8,18 +8,18 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/alexrkas/Desktop/EE469/lab5
-v12607b48gVpY4ReAE+ECYQ==
+vg2EXAotnOiuU/+bNoANyIw==
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1512452589
+Z2 !s110 1512494904
 !i10b 0
 !s100 M?M3HENjKXP2g;;]S]bCD1
 I572SK8jdK6kb6EAF]f3XE0
 Z3 VDg1SIo80bB@j0V0VzS_@n1
-!i8a 1605194880
+!i8a 202394288
 Z4 !s105 cache_svp_unit
 S1
 R0
-Z5 w1512452589
+Z5 w1512494904
 Z6 8./cache.svp
 Z7 F./cache.svp
 Z8 L0 39
@@ -27,20 +27,20 @@ Z9 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z10 !s108 1512452588.000000
+Z10 !s108 1512494904.000000
 Z11 !s107 ./cache.svp|
 Z12 !s90 -reportprogress|300|./cache.svp|
 !i113 1
 Z13 tCvgOpt 0
 n6979e5
-vu0+8SvrN/9xAnOqQFeH0YA==
+vSxfzMcwh4uFtNMlAeZEFDA==
 R1
 R2
 !i10b 0
 !s100 PmDUhgg;l7kk[mf9BC?C;0
 IU3Y]=1E>id@?lmN?0cD^a0
 R3
-!i8a 1641908208
+!i8a 1955634736
 R4
 S1
 R0
@@ -58,14 +58,14 @@ R12
 !i113 1
 R13
 n9eb4987
-v2j5shUWzyg2WAyxIKNmfiA==
+v297ZELFefgSPqtI7zxVryQ==
 R1
 R2
 !i10b 0
 !s100 [edbX7C6m8TV_9hgaKlPD2
 I9G59D9a=;W8lAnUcLH=8]0
 R3
-!i8a 413394416
+!i8a 2109133296
 R4
 S1
 R0
@@ -83,14 +83,14 @@ R12
 !i113 1
 R13
 n343c728
-vnzdfosHk3BwPksvYr3+GyQ==
+vTtHPM+0B5xXBhTDtuQkWOA==
 R1
 R2
 !i10b 0
 !s100 N2_nd4]:DOO?DSJHe6[IV0
 ICCQH1D@P@99d2InE0n5I52
 R3
-!i8a 225433264
+!i8a 700034640
 R4
 S1
 R0
@@ -108,14 +108,14 @@ R12
 !i113 1
 R13
 n3b3472
-vChAw1xw052mEzcdEERxV4Q==
+vh16Vnd8RrBoFmxPizBN8KA==
 R1
 R2
 !i10b 0
 !s100 fNch4KlO9a<j4oW7f[Gkh3
 I1EQVa60j7K[Y4N4n50Wc42
 R3
-!i8a 169046688
+!i8a 1986936912
 Z14 !s105 DataMemory_svp_unit
 S1
 R0
@@ -127,20 +127,20 @@ R9
 r1
 !s85 0
 31
-Z18 !s108 1512452589.000000
-Z19 !s107 ./DataMemory.svp|
-Z20 !s90 -reportprogress|300|./DataMemory.svp|
+R10
+Z18 !s107 ./DataMemory.svp|
+Z19 !s90 -reportprogress|300|./DataMemory.svp|
 !i113 1
 R13
 n640ae39
-vkV8Lt9IiaS2Ref/q7ykf4ytF4NQ1PccB863wZVeRDDM=
+v3XK9huzPfcd9WhXdrxnxuEPAfPp5YB4vw/L8Tzk1hWs=
 R1
 R2
 !i10b 0
 !s100 kSC@gWdjl53HCkV71U1hd0
 INchR^Hn4g>FeXoNj4ABo@2
 R3
-!i8a 1531322640
+!i8a 1219574960
 R14
 S1
 R0
@@ -152,9 +152,9 @@ R9
 r1
 !s85 0
 31
+R10
 R18
 R19
-R20
 !i113 1
 R13
 n491aef8
@@ -162,110 +162,110 @@ vlab5
 R1
 R2
 !i10b 1
-!s100 z4F_X7`A`3oAj]_l^MRPd0
-I_ae71Hd2`zOnQ4KWgEi<;3
+!s100 dW4LI2j53KlhVOUCQG]MX3
+IZ=idTh3n>DlCd5>;I[[8T3
 R3
-Z21 !s105 lab5_sv_unit
+Z20 !s105 lab5_sv_unit
 S1
 R0
-Z22 w1512452583
-Z23 8./lab5.sv
-Z24 F./lab5.sv
-Z25 L0 28
+Z21 w1512494901
+Z22 8./lab5.sv
+Z23 F./lab5.sv
+Z24 L0 28
 R9
 r1
 !s85 0
 31
-R18
-Z26 !s107 ./lab5.sv|
-Z27 !s90 -reportprogress|300|./lab5.sv|
+R10
+Z25 !s107 ./lab5.sv|
+Z26 !s90 -reportprogress|300|./lab5.sv|
 !i113 1
 R13
 vlab5_testbench
 R1
 R2
 !i10b 1
-!s100 e4[BDgiaJj0MS4_?8[^bg1
-IaNz1Y``;Z5MzU7TmB?CgM2
+!s100 g?Gc22^CNbU>K:>B?k?k?2
+I7b4Mc[kG@GfI6NG0[AScF2
 R3
-R21
+R20
 S1
 R0
+R21
 R22
 R23
-R24
 L0 53
 R9
 r1
 !s85 0
 31
-R18
+R10
+R25
 R26
-R27
 !i113 1
 R13
-vC77QhChtW1RdEfo2uYA44A==
+vJstD/xZQRVxo7E64epxYXA==
 R1
-Z28 !s110 1512452587
+Z27 !s110 1512494903
 !i10b 0
 !s100 RLSDzJY9ZcSkeGSWfZE><2
 I7fc9dRWihgn=AZk8=LK;<3
 R3
-!i8a 1808412896
-Z29 !s105 main_memory_svp_unit
+!i8a 92062928
+Z28 !s105 main_memory_svp_unit
 S1
 R0
-Z30 w1512452587
-Z31 8./main_memory.svp
-Z32 F./main_memory.svp
-R25
+Z29 w1512494903
+Z30 8./main_memory.svp
+Z31 F./main_memory.svp
+R24
 R9
 r1
 !s85 0
 31
-Z33 !s108 1512452587.000000
-Z34 !s107 ./main_memory.svp|
-Z35 !s90 -reportprogress|300|./main_memory.svp|
+Z32 !s108 1512494903.000000
+Z33 !s107 ./main_memory.svp|
+Z34 !s90 -reportprogress|300|./main_memory.svp|
 !i113 1
 R13
 n649c6d9
-vPs48E3gVoZ17bKwzyICIrcBeL9I+lKA4u2go5W185wc=
+va8qOU1pBn4oGaKeIyn58FfIc8CxC6ABP5G+shuDa4T4=
 R1
-R28
+R27
 !i10b 0
 !s100 LI4gfD9?JS;H11aS[`HC;0
 ILJUOTADj[D0X6LYd?2=@c0
 R3
-!i8a 1872769488
-R29
+!i8a 2002456848
+R28
 S1
 R0
+R29
 R30
 R31
-R32
-R25
+R24
 R9
 r1
 !s85 0
 31
+R32
 R33
 R34
-R35
 !i113 1
 R13
 nc71a798
-vnUN0+5EUbWRUGnEIGs4j2Q==
+vn/HMAhk6vn5aWdjheRjtfg==
 R1
-!s110 1512452588
+R27
 !i10b 0
 !s100 3LT5b9W0EfgE9PIFJ]f6M3
 I<?db7Ik<MEQZL@0RCYQ753
 R3
-!i8a 605765296
+!i8a 1291104896
 !s105 write_buffer_svp_unit
 S1
 R0
-w1512452588
+R29
 8./write_buffer.svp
 F./write_buffer.svp
 L0 32
@@ -273,7 +273,7 @@ R9
 r1
 !s85 0
 31
-R33
+R32
 !s107 ./write_buffer.svp|
 !s90 -reportprogress|300|./write_buffer.svp|
 !i113 1
