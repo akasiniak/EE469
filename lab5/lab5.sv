@@ -243,20 +243,72 @@ module lab5_testbench ();
 	initial begin
 		dummy_data <= '0;
 		resetMem();				// Initialize the memory.
-		for(j = 0; j <= 32; j++) begin
-		resetMem();		
-		$display("for %d address accesses:", j + 1);
-			for(i = 0; i <= j; i++) begin
-				addr = i*8; // *8 to doubleword-align the access.
-				readMem(addr, dummy_data, delay);
-				$display("	%t Read at address %d took %d cycles", $time, addr, delay);
-			end
-			addr = 20'd0; // *8 to doubleword-align the access.
+		dummy_data = 1;
+
+/*		// L1 Write Hit
+		$display("L1 Write Hit");
+		readMem(0, dummy_data, delay);
+		$display("%t Read address %d took %d cycles", $time, 0, delay);
+		writeMem(0, dummy_data, 8'hFF, delay); 
+		$display("%t Write address %d took %d cycles", $time, 0, delay);
+		$display("\n");
+
+		// L1 Write Miss
+		$display("L1 Write Miss");
+		writeMem(128, dummy_data, 8'hFF, delay); 
+		$display("%t Write address %d took %d cycles", $time, 128, delay);
+		$display("\n");
+*/
+		// Test for L1 write back payment
+		$display("Testing L1 Write Back");
+		addr = 0;
+		writeMem(addr, dummy_data, 8'hFF, delay); 
+		$display("%t Write address %d took %d cycles", $time, addr, delay);
+		addr = 128;
+		readMem(addr, dummy_data, delay);
+		$display("%t Read address %d took %d cycles", $time, addr, delay);
+
+		// Reset Mem
+		$display("Reset Mem to test L2\n");
+		resetMem();
+
+
+		// Fill L1 Cache
+		$display("Filling L1 Cache");
+		for (i = 0; i < 8; i++) begin
+			addr = i*16;
 			readMem(addr, dummy_data, delay);
-			$display("	%t Read at address 0 took %d cycles", $time, delay);
-			$display("\n");
-			$display("\n");
+			$display("%t Read address %d took %d cycles", $time, addr, delay);
 		end
+		$display("\n");
+/*
+		// L2 Write Hit
+		$display("L2 Write Hit");
+		addr = 128;
+		readMem(addr, dummy_data, delay);
+		$display("%t Read address %d took %d cycles", $time, addr, delay);
+		writeMem(addr, dummy_data, 8'hFF, delay); 
+		$display("%t Write address %d took %d cycles", $time, addr, delay);
+		$display("\n");
+
+		// L2 Write Miss
+		$display("L2 Write Miss");
+		writeMem(addr, dummy_data, 8'hFF, delay); 
+		$display("%t Write address %d took %d cycles", $time, addr, delay);
+		$display("\n");
+*/
+
+		// Test for L2 write back payment
+		$display("Testing L2 Write Back");
+		addr = 128;
+		writeMem(addr, dummy_data, 8'hFF, delay); 
+		$display("%t Write address %d took %d cycles", $time, addr, delay);
+		addr = 512;
+		readMem(addr, dummy_data, delay);
+		$display("%t Read address %d took %d cycles", $time, addr, delay);
+
+
+
 		
 		// Reset the memory.
 		resetMem();
